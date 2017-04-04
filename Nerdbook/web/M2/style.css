@@ -1,0 +1,69 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-mar-2017, 11.51.48
+    Author     : Stefano
+*/
+body{
+    background-color: #333333;
+    font: 17px/25px 'Tauri', Charcoal, sans-serif;
+    color: white;
+}
+
+h1{
+    color: #cccccc;
+    font: 40px/45px 'Tauri', Charcoal, sans-serif;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+h2{
+    color: #cccccc;
+    font: 30px/35px 'Tauri', Charcoal, sans-serif;
+    font-weight: bold;
+}
+
+h3{
+    color: #cccccc;
+    font: 23px/30px 'Tauri', Charcoal, sans-serif;
+    font-weight: bold;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: #ff9900;
+}
+
+a:hover{
+    color: #FFCF0D;
+}
+
+/*form{
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+label, input{
+    font: 20px/25px 'Tauri', Charcoal, sans-serif;
+}
+
+input{
+    outline: none;
+    border: 2px solid #555555;
+    background: white;
+    color: #333333;
+    line-height: 30px; 
+    width: 250px;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid #ff9900;
+    box-shadow: 0 0 1px #ffcf0d;
+}
+
+
+
