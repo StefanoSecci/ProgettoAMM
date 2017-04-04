@@ -41,16 +41,12 @@ a:hover{
     color: #FFCF0D;
 }
 
-/*form{
-    margin-left: auto;
-    margin-right: auto;
-}*/
-
 label, input{
     font: 20px/25px 'Tauri', Charcoal, sans-serif;
 }
 
 input{
+    display: block;
     outline: none;
     border: 2px solid #555555;
     background: white;
@@ -65,5 +61,75 @@ input:focus{
     box-shadow: 0 0 1px #ffcf0d;
 }
 
+form button{
+    width: 100%;
+    font: 20px/25px 'Tauri', Charcoal, sans-serif;
+    background-color: #ff9900;
+    border: outset #999999;
+}
+
+form button:hover{
+    background-color: #ffcf0d;
+}
+
+form button:active, form button:focus{
+    border: inset #999999;
+    outline: none;
+}
+
+#formLogin label, #formLogin input, #formLogin button{
+    margin: 20px;
+}
+
+#formLogin button{
+    margin-top: 5px;
+}
+
+#formLogin input{
+    width: 100%;
+    margin-top: 5px;
+}
+
+#formLogin{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formLogin label:after{
+    content: '\A';
+    white-space: pre;
+}
+
+#formProfilo form{
+    width: 450px;
+}
+
+#formProfilo label, #formProfilo input, #formProfilo button{
+    margin: 15px 20px;
+}
+
+#formProfilo input{
+    margin-left: 0px;
+}
+
+#formProfilo label{
+    float: left;
+    width: 120px;
+    height: 30px;
+}
+
+#formProfilo input{
+    float: left;
+    width: 266px;
+}
+
+#formProfilo #data{
+    width: 264px;
+}
+
+#formProfilo button{
+    width: 410px;
+}
 
 
