@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Profilo</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="profilo, utente, nerdbook, nome">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="profilo personale di nerdbook">
+        <meta name="author" content="Stefano Secci">
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        <link href='//fonts.googleapis.com/css?family=Tauri' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <div id="title">
+                <h1>profilo personale</h1>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="login.html" target="_blank">login</a></li>
+                <li><a href="bacheca.html" target="_blank">bacheca</a></li>
+                <li><a href="profilo.html" target="_blank">profilo</a></li>
+                <li><a href="descrizione.html" target="_blank">descrizione</a></li>
+            </ul>
+        </nav>
+        
+        <div id="formProfilo">
+            <form action="servlet.java" method="post">
+                <label for="name">nome</label>
+                <input type="text" name="name" id="name"
+                       value="Mario" />
+                
+                <label for="surname">cognome</label>
+                <input type="text" name="surname" id="surname"
+                       value="Rossi" />
+                
+                <label for="data">nato il</label>
+                <input type="date" name="data" id="data"
+                       value="1980-01-01" />
+                
+                <label for="propic">immagine del profilo</label>
+                <input type="url" name="propic" id="propic"/>
+                
+                <label for="frase">insersci una frase di presentazione</label>
+                <input type="text" name="frase" id="frase"
+                       value="hey there! i am using nerdbook"/>
+                
+                <label for="pswd">password</label>
+                <input type="password" name="pswd" id="pswd"
+                       value="password" />
+                
+                <label for="confpswd">conferma password</label>
+                <input type="password" name="confpswd" id="confpswd"
+                       value="password" />
+                
+                <button type="submit">Aggiorna</button>
+            </form>
+        </div>
+        
+        
+    </body>
+</html>
