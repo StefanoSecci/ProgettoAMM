@@ -16,40 +16,76 @@ and open the template in the editor.
         <link href='//fonts.googleapis.com/css?family=Tauri' rel='stylesheet'>
     </head>
     <body>
+        
         <header>
-            <div id="title">
-                <h1>Bacheca</h1>
+            <div id="navbar">
+                <div id="logo">
+                    <h1><a href="descrizione.html">NerdBook</a></h1>
+                </div>
+
+                <nav>
+                    <ul>
+                        <!--<li><a href="login.html" target="_blank">login</a></li>-->
+                        <li><a href="profilo.html">profilo</a></li>
+                        <li class="attuale"><a href="bacheca.html">bacheca</a></li>
+                        <!--<li><a href="descrizione.html" target="_blank">descrizione</a></li>-->
+                    </ul>
+                </nav>
+
+                <div id="login">
+                    <p>Lester Crest</p>
+                    <a href="login.html">logout</a>
+                </div>
             </div>
         </header>
         
-        <nav>
-            <ul>
-                <li><a href="login.html" target="_blank">login</a></li>
-                <li><a href="bacheca.html" target="_blank">bacheca</a></li>
-                <li><a href="profilo.html" target="_blank">profilo</a></li>
-                <li><a href="descrizione.html" target="_blank">descrizione</a></li>
-            </ul>
-        </nav>
+        
+        
+        <div id="sidebar">
+            
+            <div id="persone">
+                <h2>Persone</h2>
+                <div id="personeList">
+                    <ul>
+                        <li><a href="profilo.html">Aldo Baglio</a></li>
+                        <li><a href="profilo.html">Giovanni Storti</a></li>
+                        <li><a href="profilo.html">Giacomo Poretti</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="gruppi">
+                <h2>Gruppi</h2>
+                <div id="gruppiList">
+                    <ul>
+                        <li><a href="bacheca.html">Commodore Zone</a></li>
+                        <li><a href="bacheca.html">AppleFag</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
         
         <div id="bacheca">
-            <div id="postSenzaAllegato">
-                <h2>$teve</h2>
-                <img alt="foto profilo di steve" src="img/steve.jpg">
+            <div>
+                <h3><a href="profilo.html">$teve Jobs</a></h3>
+                <img class="propic" alt="foto profilo di steve" src="img/steve.jpg">
                 <p>sto cercando uno smartphone, budget 200 euro. Qual è il migliore?</p>
             </div>
             
-            <div id="postConFoto">
-                <h2>Bill</h2>
-                <img alt="foto profilo di bill" src="img/bill.jpg">
+            <div>
+                <h3><a href="profilo.html">Bill Gates</a></h3>
+                <img class="propic" alt="foto profilo di bill" src="img/bill.jpg">
                 <p>mi è apparsa questa schermata, che faccio? :-O</p>
-                <img alt="schermata blu" src="img/Schermata-blu.jpg">
+                <img class="allegato" alt="schermata blu" src="img/Schermata-blu.jpg">
             </div>
             
-            <div id="postConLink">
-                <h2>Mark</h2>
-                <img alt="foto profilo di mark" src="img/mark.jpg">
+            <div>
+                <h3><a href="profilo.html">Mark Zuckerberg</a></h3>
+                <img class="propic" alt="foto profilo di mark" src="img/mark.jpg">
                 <p>mi sono stancato di questo sito!!11!!1!!1!!1!! da ora in poi mi trovate qui</p>
-                <a href="https://www.facebook.com/zuck?fref=ts">facebook.com/zuck</a>
+                <a class="allegato" href="https://www.facebook.com/zuck?fref=ts">facebook.com/zuck</a>
             </div>
         </div>
         
