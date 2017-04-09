@@ -134,16 +134,18 @@ form button:active, form button:focus{
     width: 410px;
 }
 
-header{
+header.barra{
     background-color: #272727;
     position: fixed;
     top: 0;
     right: 0;
     height: 60px;
     width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 #navbar{
+    height: 60px;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -151,17 +153,81 @@ header{
 
 #logo{
     float: left;
+    height: 60px;
     width: 200px;
+    text-align: center;
 }
 
 nav{
     float: left;
+    height: 60px;
     width: 600px;
 }
 
+nav ul, nav li{
+    margin-top: 0px;
+    list-style-type: none;
+    display: inline-block;
+    line-height: 80px;
+    height: 57px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-variant: small-caps;
+}
+
+nav li:hover{
+    background-color: #444444;
+}
+
+nav li.attuale{
+    border-bottom: 3px solid #ffcf0d;
+}
+
+/*nav li a{
+    text-align: center;
+}*/
+
+
 #login{
+    margin-top: 0px;
     float: right;
+    height: 60px;
     width: 200px;
+    display: inline-block;
+    text-align: center;
+}
+
+#login p{
+    height: 19px;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    font-size: 17px;
+    
+}
+
+#login a{
+    margin-top: 0px;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+#divBody{
+    margin-top: 70px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sidebar{
+    float: left;
+    width: 200px;
+}
+
+#bacheca{
+    float: left;
+    width: 800px;
 }
 
 
