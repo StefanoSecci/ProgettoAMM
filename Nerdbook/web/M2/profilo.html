@@ -16,52 +16,91 @@ and open the template in the editor.
         <link href='//fonts.googleapis.com/css?family=Tauri' rel='stylesheet'>
     </head>
     <body>
-        <header>
-            <div id="title">
-                <h1>profilo personale</h1>
+        <header class="barra">
+            <div id="navbar">
+                <div id="logo">
+                    <h1><a href="descrizione.html">NerdBook</a></h1>
+                </div>
+
+                <nav>
+                    <ul>
+                        <!--<li><a href="login.html" target="_blank">login</a></li>-->
+                        <li class="attuale"><a href="profilo.html">profilo</a></li>
+                        <li><a href="bacheca.html">bacheca</a></li>
+                        <!--<li><a href="descrizione.html" target="_blank">descrizione</a></li>-->
+                    </ul>
+                </nav>
+
+                <div id="login">
+                    <p>Lester Crest</p>
+                    <a href="login.html">logout</a>
+                </div>
             </div>
         </header>
         
-        <nav>
-            <ul>
-                <li><a href="login.html" target="_blank">login</a></li>
-                <li><a href="bacheca.html" target="_blank">bacheca</a></li>
-                <li><a href="profilo.html" target="_blank">profilo</a></li>
-                <li><a href="descrizione.html" target="_blank">descrizione</a></li>
-            </ul>
-        </nav>
         
-        <div id="formProfilo">
-            <form action="servlet.java" method="post">
-                <label for="name">Nome</label>
-                <input type="text" name="name" id="name"
-                       value="Mario" />
-                
-                <label for="surname">Cognome</label>
-                <input type="text" name="surname" id="surname"
-                       value="Rossi" />
-                
-                <label for="data">Nato il</label>
-                <input type="date" name="data" id="data"
-                       value="1980-01-01" />
-                
-                <label for="propic">Immagine del profilo</label>
-                <input type="url" name="propic" id="propic"/>
-                
-                <label for="frase">Frase di presentazione</label>
-                <input type="text" name="frase" id="frase"
-                       value="hey there! i am using nerdbook"/>
-                
-                <label for="pswd">Password</label>
-                <input type="password" name="pswd" id="pswd"
-                       value="password" />
-                
-                <label for="confpswd">Conferma password</label>
-                <input type="password" name="confpswd" id="confpswd"
-                       value="password" />
-                
-                <button type="submit">Aggiorna</button>
-            </form>
+        
+        <div id="divBody">
+            
+            <div id="sidebar">
+            
+                <div id="persone">
+                    <h2>Persone</h2>
+                    <div id="personeList">
+                        <ul>
+                            <li><a href="profilo.html">Aldo Baglio</a></li>
+                            <li><a href="profilo.html">Giovanni Storti</a></li>
+                            <li><a href="profilo.html">Giacomo Poretti</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="gruppi">
+                    <h2>Gruppi</h2>
+                    <div id="gruppiList">
+                        <ul>
+                            <li><a href="bacheca.html">Commodore Zone</a></li>
+                            <li><a href="bacheca.html">AppleFag</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            
+        
+            <div id="formProfilo">
+                <form action="servlet.java" method="post">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name"
+                           value="Mario" />
+
+                    <label for="surname">Cognome</label>
+                    <input type="text" name="surname" id="surname"
+                           value="Rossi" />
+
+                    <label for="data">Nato il</label>
+                    <input type="date" name="data" id="data"
+                           value="1980-01-01" />
+
+                    <label for="propic">Immagine del profilo</label>
+                    <input type="url" name="propic" id="propic"/>
+
+                    <label for="frase">Frase di presentazione</label>
+                    <input type="text" name="frase" id="frase"
+                           value="hey there! i am using nerdbook"/>
+
+                    <label for="pswd">Password</label>
+                    <input type="password" name="pswd" id="pswd"
+                           value="password" />
+
+                    <label for="confpswd">Conferma password</label>
+                    <input type="password" name="confpswd" id="confpswd"
+                           value="password" />
+
+                    <button type="submit">Aggiorna</button>
+                </form>
+            </div>
+            
         </div>
         
         

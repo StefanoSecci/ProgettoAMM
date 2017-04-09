@@ -225,9 +225,61 @@ nav li.attuale{
     width: 200px;
 }
 
+#stato{
+    float: left;
+    width: 800px;
+    height: 50px;
+}
+
+#stato p{
+    display: inline-block;
+    padding-left: 20px;
+}
+
+#stato p strong{
+    color: #cccccc;
+}
+
 #bacheca{
+    margin-top: 10px;
     float: left;
     width: 800px;
 }
 
+#bacheca .post{
+    display: inline-block;
+    margin: 10px 20px;
+    background-color: #353535;
+    border: 0.5px solid #383838;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+}
 
+#bacheca .post .propic{
+    display: inline-block;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+#bacheca .post h3{
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 27px;
+    margin-top: 0px;
+}
+
+#bacheca .post p{
+    display: inline-block;
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#bacheca .post .allegato{
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
