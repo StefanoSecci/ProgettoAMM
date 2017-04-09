@@ -44,13 +44,13 @@ a:hover{
 }
 
 label, input{
-    font: 20px/25px 'Tauri', Charcoal, sans-serif;
+    font: 17px/25px 'Tauri', Charcoal, sans-serif;
 }
 
 input{
     display: block;
     outline: none;
-    border: 2px solid #555555;
+    border: 2px #555555;
     background: white;
     color: #333333;
     line-height: 30px; 
@@ -65,9 +65,9 @@ input:focus{
 
 form button{
     width: 100%;
-    font: 20px/25px 'Tauri', Charcoal, sans-serif;
+    font: 17px/25px 'Tauri', Charcoal, sans-serif;
     background-color: #ff9900;
-    border: outset #999999;
+    border: 2px outset #999999;
 }
 
 form button:hover{
@@ -104,34 +104,35 @@ form button:active, form button:focus{
 }
 
 #formProfilo form{
-    width: 450px;
+    display: inline-block;
+    width: 568px;
+    margin-left: 20px;
 }
 
 #formProfilo label, #formProfilo input, #formProfilo button{
-    margin: 15px 20px;
-}
-
-#formProfilo input{
-    margin-left: 0px;
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #formProfilo label{
-    float: left;
-    width: 120px;
+    width: 150px;
     height: 30px;
+    margin-right: 20px;
 }
 
 #formProfilo input{
-    float: left;
-    width: 266px;
+    width: 394px;
 }
 
 #formProfilo #data{
-    width: 264px;
+    width: 393px;
 }
 
 #formProfilo button{
-    width: 410px;
+    display: inline-block;
+    width: 568px;
 }
 
 header.barra{
@@ -246,13 +247,20 @@ nav li.attuale{
     width: 800px;
 }
 
-#bacheca .post{
+#bacheca .post, #formProfilo{
     display: inline-block;
-    margin: 10px 20px;
     background-color: #353535;
-    border: 0.5px solid #383838;
+    border: 1px #383838;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 20px;
+}
+
+#bacheca .post{
+    width: 738px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
 #bacheca .post .propic{
@@ -282,4 +290,22 @@ nav li.attuale{
     float: left;
     margin-top: 10px;
     width: 100%;
+}
+
+#formProfilo{
+    width: 738px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#formProfilo .propic{
+    display: inline-block;
+    float: left;
+    width: 150px;
+    height: 150px;
+}
+
+#formProfilo form{
+    display: inline-block;
+    float: left;
 }
