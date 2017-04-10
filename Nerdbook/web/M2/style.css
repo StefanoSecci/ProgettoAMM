@@ -50,11 +50,12 @@ label, input{
 input{
     display: block;
     outline: none;
-    border: 2px #555555;
+    border: 2px solid #555555;
     background: white;
     color: #333333;
     line-height: 30px; 
     width: 250px;
+    text-indent: 5px;
 }
 
 input:focus{
@@ -128,6 +129,7 @@ form button:active, form button:focus{
 
 #formProfilo #data{
     width: 393px;
+    text-indent: 2px;
 }
 
 #formProfilo button{
@@ -180,6 +182,7 @@ nav ul, nav li{
 
 nav li:hover{
     background-color: #444444;
+    border-bottom: 3px solid #444444;
 }
 
 nav li.attuale{
@@ -189,6 +192,10 @@ nav li.attuale{
 /*nav li a{
     text-align: center;
 }*/
+
+.propic{
+    border-radius: 5%;
+}
 
 
 #login{
@@ -200,15 +207,27 @@ nav li.attuale{
     text-align: center;
 }
 
+#login .propic, #stato .propic, #personeList .propic{
+    height: 25px;
+    width: 25px;
+}
+
+#login .propic{
+    margin-top:12px;
+    margin-left: 35px;
+    float: left;
+}
+
 #login p{
+    margin-right: 30px;
     height: 19px;
     margin-top: 12px;
     margin-bottom: 0px;
     font-size: 17px;
-    
 }
 
 #login a{
+    margin-right: 30px;
     margin-top: 0px;
     text-decoration: underline;
     font-size: 12px;
@@ -232,12 +251,21 @@ nav li.attuale{
     height: 50px;
 }
 
+#stato .propic{
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
 #stato p{
     display: inline-block;
-    padding-left: 20px;
+    float:left;
+    margin-left: 20px;
 }
 
 #stato p strong{
+    margin-left: -10px;
     color: #cccccc;
 }
 
@@ -302,10 +330,38 @@ nav li.attuale{
     display: inline-block;
     float: left;
     width: 150px;
-    height: 150px;
+    height: 148px;
 }
 
 #formProfilo form{
     display: inline-block;
     float: left;
+    
+}
+
+#sidebar h2{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+#personeList ul, #personeList li, #gruppiList ul, #gruppilist li{
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 0px;
+    margin-bottom: 4px;
+}
+
+#personeList .propic{
+    display: inline-block;
+    float: left;
+}
+
+#personeList li p, #gruppilist li p{
+    float: left;
+    display: inline-block;
+    line-height: 25px;
+    height: 25px;
+    width: 165px;
+    margin: 0px;
+    margin-left: 10px;
 }
