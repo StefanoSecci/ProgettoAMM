@@ -82,6 +82,8 @@ form button:active, form button:focus{
 
 #formLogin label, #formLogin input, #formLogin button{
     margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #formLogin button{
@@ -94,7 +96,7 @@ form button:active, form button:focus{
 }
 
 #formLogin{
-    width: 400px;
+    width: 440px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -275,12 +277,15 @@ nav li.attuale{
     width: 800px;
 }
 
-#bacheca .post, #formProfilo{
-    display: inline-block;
+#bacheca .post, #formProfilo, #formLogin{
     background-color: #353535;
     border: 1px #383838;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 20px;
+}
+
+#bacheca .post, #formProfilo{
+    display: inline-block;
 }
 
 #bacheca .post{
@@ -356,12 +361,54 @@ nav li.attuale{
     float: left;
 }
 
-#personeList li p, #gruppilist li p{
-    float: left;
+#personeList li p, #gruppiList li p{
     display: inline-block;
     line-height: 25px;
     height: 25px;
     width: 165px;
     margin: 0px;
     margin-left: 10px;
+}
+
+#personeList li p{
+    float: left;
+}
+
+#gruppiList li{
+    display: inline-box;
+    background-image: url(img/gruppo.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    padding-left: 25px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+#gruppi h2{
+    display: inline-box;
+    background-image: url(img/gruppoPiu.png);
+    background-repeat: no-repeat;
+    background-position: 160px 0px;
+    background-size: 40px 40px;
+}
+
+#title{
+    height: 40px;
+    width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+#title h1{
+    width:360px;
+    margin-right: 40px;
+    float: right;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#title .icona{
+    float:left;
 }
