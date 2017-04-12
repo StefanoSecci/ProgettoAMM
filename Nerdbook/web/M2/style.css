@@ -7,30 +7,21 @@ and open the template in the editor.
     Created on : 28-mar-2017, 11.51.48
     Author     : Stefano
 */
+
 body{
     background-color: #333333;
-    font: 17px/25px 'Tauri', Charcoal, sans-serif;
+    font-family: 'Tauri', Charcoal, sans-serif;
     color: white;
 }
 
 h1{
-    margin-top: 10px;
-    margin-bottom: 10px;
     color: #cccccc;
-    font: 40px/45px 'Tauri', Charcoal, sans-serif;
     font-weight: bold;
     font-variant: small-caps;
 }
 
-h2{
+h2, h3{
     color: #cccccc;
-    font: 30px/35px 'Tauri', Charcoal, sans-serif;
-    font-weight: bold;
-}
-
-h3{
-    color: #cccccc;
-    font: 23px/30px 'Tauri', Charcoal, sans-serif;
     font-weight: bold;
 }
 
@@ -43,19 +34,16 @@ a:hover{
     color: #FFCF0D;
 }
 
-label, input{
-    font: 17px/25px 'Tauri', Charcoal, sans-serif;
+.propic{
+    border-radius: 5%;
 }
 
 input{
-    display: block;
     outline: none;
     border: 2px solid #555555;
     background: white;
     color: #333333;
-    line-height: 30px; 
-    width: 250px;
-    text-indent: 5px;
+    font-family: 'Tauri', Charcoal, sans-serif;
 }
 
 input:focus{
@@ -65,121 +53,40 @@ input:focus{
 }
 
 form button{
+    font-family: 'Tauri', Charcoal, sans-serif;
     width: 100%;
-    font: 17px/25px 'Tauri', Charcoal, sans-serif;
     background-color: #ff9900;
-    border: 2px outset #999999;
+    border-bottom: 5px solid #7F4C00;
+    border-top: 5px solid #ff9900;
+    border-left: none;
+    border-right: none;
+    padding-bottom: 5px;
 }
 
 form button:hover{
     background-color: #ffcf0d;
+    border-top-color: #ffcf0d;
 }
 
 form button:active, form button:focus{
-    border: inset #999999;
+    border-bottom-color:  #ff9900 ;
+    border-top-color: #353535;
     outline: none;
-}
-
-#formLogin label, #formLogin input, #formLogin button{
-    margin: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#formLogin button{
-    margin-top: 5px;
-}
-
-#formLogin input{
-    width: 100%;
-    margin-top: 5px;
-}
-
-#formLogin{
-    width: 440px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#formLogin label:after{
-    content: '\A';
-    white-space: pre;
-}
-
-#formProfilo form{
-    display: inline-block;
-    width: 568px;
-    margin-left: 20px;
-}
-
-#formProfilo label, #formProfilo input, #formProfilo button{
-    display: inline-block;
-    float: left;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-#formProfilo label{
-    width: 150px;
-    height: 30px;
-    margin-right: 20px;
-}
-
-#formProfilo input{
-    width: 394px;
-}
-
-#formProfilo #data{
-    width: 393px;
-    text-indent: 2px;
-}
-
-#formProfilo button{
-    display: inline-block;
-    width: 568px;
+    padding-bottom: 0px;
+    padding-top: 5px;
 }
 
 header.barra{
     background-color: #272727;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 60px;
     width: 100%;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-#navbar{
-    height: 60px;
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#logo{
-    float: left;
-    height: 60px;
-    width: 200px;
-    text-align: center;
-}
-
-nav{
-    float: left;
-    height: 60px;
-    width: 600px;
-}
-
 nav ul, nav li{
-    margin-top: 0px;
     list-style-type: none;
-    display: inline-block;
-    line-height: 80px;
-    height: 57px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
-    font-size: 20px;
     font-variant: small-caps;
+    text-align: center;
+    display: inline-block;
 }
 
 nav li:hover{
@@ -191,224 +98,478 @@ nav li.attuale{
     border-bottom: 3px solid #ffcf0d;
 }
 
-/*nav li a{
-    text-align: center;
-}*/
-
-.propic{
-    border-radius: 5%;
-}
-
-
-#login{
-    margin-top: 0px;
-    float: right;
-    height: 60px;
-    width: 200px;
-    display: inline-block;
-    text-align: center;
-}
-
-#login .propic, #stato .propic, #personeList .propic{
-    height: 25px;
-    width: 25px;
-}
-
-#login .propic{
-    margin-top:12px;
-    margin-left: 35px;
-    float: left;
-}
-
-#login p{
-    margin-right: 30px;
-    height: 19px;
-    margin-top: 12px;
-    margin-bottom: 0px;
-    font-size: 17px;
+#sidebar ul, #sidebar li{
+    list-style-type: none;
 }
 
 #login a{
-    margin-right: 30px;
-    margin-top: 0px;
     text-decoration: underline;
-    font-size: 12px;
 }
 
-#divBody{
-    margin-top: 70px;
-    width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#sidebar{
-    float: left;
-    width: 200px;
-}
-
-#stato{
-    float: left;
-    width: 800px;
-    height: 50px;
-}
-
-#stato .propic{
-    display: inline-block;
-    float: left;
-    margin-left: 20px;
-    margin-top: 15px;
-}
-
-#stato p{
-    display: inline-block;
-    float:left;
-    margin-left: 20px;
-}
-
-#stato p strong{
-    margin-left: -10px;
-    color: #cccccc;
-}
-
-#bacheca{
-    margin-top: 10px;
-    float: left;
-    width: 800px;
-}
-
-#bacheca .post, #formProfilo, #formLogin{
+#bacheca .post, #formProfilo, #formLogin, #descrizione{
     background-color: #353535;
     border: 1px #383838;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    padding: 20px;
+}
+    
+/****************/   
+/**** 1024 + ****/
+/****************/
+
+@media only screen and (min-width: 1024px) {
+    
+    body, label, input, form button{
+        font-size: 17px;
+        line-height: 25px;
+    }
+    
+    h1{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 40px;
+        line-height: 45px;
+    }
+    
+    h2{
+        font-size: 30px;
+        line-height: 35px;
+    }
+    
+    h3{
+        font-size: 23px;
+        line-height: 30px;
+    }
+
+    input{
+        display: block;
+        line-height: 30px; 
+        text-indent: 5px;
+    }
+
+    #formLogin label, #formLogin input, #formLogin button{
+        margin: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #formLogin button{
+        margin-top: 5px;
+    }
+
+    #formLogin input{
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    #formLogin{
+        width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #formLogin label:after{
+        content: '\A';
+        white-space: pre;
+    }
+
+    #formProfilo form{
+        display: inline-block;
+        width: 568px;
+        margin-left: 20px;
+    }
+
+    #formProfilo label, #formProfilo input, #formProfilo button{
+        display: inline-block;
+        float: left;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    #formProfilo label{
+        width: 150px;
+        height: 30px;
+        margin-right: 20px;
+    }
+
+    #formProfilo input{
+        width: 394px;
+    }
+
+    #formProfilo #data{
+        width: 393px;
+        text-indent: 2px;
+    }
+
+    #formProfilo button{
+        display: inline-block;
+        width: 568px;
+    }
+
+    header.barra{
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 60px;
+    }
+    
+    #navbar{
+        height: 60px;
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #logo{
+        float: left;
+        height: 60px;
+        width: 200px;
+        text-align: center;
+    }
+
+    nav{
+        float: left;
+        height: 60px;
+        width: 600px;
+    }
+
+    nav ul, nav li{
+        margin-top: 0px;
+        height: 57px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 20px;
+        line-height: 80px;
+    }
+
+    #login{
+        margin-top: 0px;
+        float: right;
+        height: 60px;
+        width: 200px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    #login .propic, #stato .propic, #personeList .propic{
+        height: 25px;
+        width: 25px;
+    }
+
+    #login .propic{
+        margin-top:12px;
+        margin-left: 35px;
+        float: left;
+    }
+
+    #login p{
+        margin-right: 30px;
+        height: 19px;
+        margin-top: 12px;
+        margin-bottom: 0px;
+        font-size: 17px;
+    }
+
+    #login a{
+        margin-right: 30px;
+        margin-top: 0px;
+        font-size: 12px;
+    }
+
+    #divBody{
+        margin-top: 70px;
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #sidebar{
+        float: left;
+        width: 200px;
+    }
+
+    #stato{
+        float: left;
+        width: 800px;
+        height: 50px;
+    }
+
+    #stato .propic{
+        display: inline-block;
+        float: left;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+
+    #stato p{
+        display: inline-block;
+        float:left;
+        margin-left: 20px;
+    }
+
+    #stato p strong{
+        margin-left: -10px;
+        color: #cccccc;
+    }
+
+    #bacheca{
+        margin-top: 10px;
+        float: left;
+        width: 800px;
+    }
+
+    #bacheca .post, #formProfilo, #formLogin, #descrizione{
+        padding: 20px;
+    }
+
+    #bacheca .post, #formProfilo,#descrizione{
+        display: inline-block;
+    }
+
+    #bacheca .post ,#descrizione{
+        width: 738px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+
+    #bacheca .post .propic{
+        display: inline-block;
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+
+    #bacheca .post h3{
+        display: inline-block;
+        float: left;
+        margin-left: 20px;
+        margin-bottom: 27px;
+        margin-top: 0px;
+    }
+
+    #bacheca .post p{
+        display: inline-block;
+        float: left;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #bacheca .post .allegato{
+        display: inline-block;
+        float: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    #formProfilo{
+        width: 738px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #formProfilo .propic{
+        display: inline-block;
+        float: left;
+        width: 150px;
+        height: 148px;
+    }
+
+    #formProfilo form{
+        display: inline-block;
+        float: left;
+
+    }
+
+    #sidebar h2{
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    #sidebar ul, #sidebar li{
+        display: inline-block;
+        padding-left: 0px;
+        margin-bottom: 4px;
+    }    
+
+    #personeList .propic{
+        display: inline-block;
+        float: left;
+    }
+
+    #personeList li p, #gruppiList li p{
+        display: inline-block;
+        line-height: 25px;
+        height: 25px;
+        width: 165px;
+        margin: 0px;
+        margin-left: 10px;
+    }
+
+    #personeList li p{
+        float: left;
+    }
+
+    #gruppiList li{
+        display: inline-box;
+        background-image: url(img/gruppo.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        padding-left: 25px;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+    #gruppi h2{
+        display: inline-box;
+        background-image: url(img/gruppoPiu.png);
+        background-repeat: no-repeat;
+        background-position: 160px 0px;
+        background-size: 40px 40px;
+    }
+
+    #title{
+        height: 40px;
+        width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+        margin-top: 50px;
+        background-image: url(img/nerd.png);
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+    }
+
+    #title h1{
+        width:360px;
+        margin-right: 40px;
+        float: right;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
 }
 
-#bacheca .post, #formProfilo{
-    display: inline-block;
-}
+/********************/   
+/**** 1024 - 480 ****/
+/********************/
 
-#bacheca .post{
-    width: 738px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 0px;
-}
-
-#bacheca .post .propic{
-    display: inline-block;
-    float: left;
-    width: 50px;
-    height: 50px;
-}
-
-#bacheca .post h3{
-    display: inline-block;
-    float: left;
-    margin-left: 20px;
-    margin-bottom: 27px;
-    margin-top: 0px;
-}
-
-#bacheca .post p{
-    display: inline-block;
-    float: left;
-    margin-top: 20px;
-    width: 100%;
-}
-
-#bacheca .post .allegato{
-    display: inline-block;
-    float: left;
-    margin-top: 10px;
-    width: 100%;
-}
-
-#formProfilo{
-    width: 738px;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-#formProfilo .propic{
-    display: inline-block;
-    float: left;
-    width: 150px;
-    height: 148px;
-}
-
-#formProfilo form{
-    display: inline-block;
-    float: left;
+@media only screen and (min-width: 480px) and (max-width: 1024px){
+    
+    body{
+        position: relative;
+        top: 0px;
+        font-size: 14px;
+        line-height: 24px;
+        margin: 0px;
+    }
+    
+    h1{
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0px;
+    }
+    
+    h2{
+        font-size: 25px;
+        line-height: 35px;
+    }
+    
+    h3{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    header.barra, #navbar, #logo, nav, #login{
+        height: 50px;
+    }
+    
+    header.barra, #navbar{
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0px;
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+    
+    #logo{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    #logo h1{
+        line-height: 50px;
+    }
+    
+    #login{
+        display: inline-block;
+        position: relative;
+        float: right;
+        top: -50px;
+        width: 100px;
+        text-align: center;
+    }
+    
+    #login p{
+        position: absolute;
+        top: 0px;
+        height: 30px;
+        width: 100px;
+        margin: 0px;
+        padding-top: 5px;
+        font-size: 10px;
+    }
+        
+    #login a{
+        position: relative;
+        top: 15px;
+        height: 20px;
+        font-size: 8px;
+    }
+    
+    
+    
+    #login .propic{
+        display: none;
+    }
+    
+    nav{
+        position: relative;
+        top: 0px;
+        left: 150px;
+    }
+    
+    nav ul{
+        margin: 0px;
+        padding: 0px;
+        margin-left: 10px;
+    }
+    
+    nav li{
+        display: inline-block;
+        height: 47px;
+        margin: 0px;
+        padding-left: 5px;
+        padding-right: 5px;
+        line-height: 70px;
+    }
     
 }
 
-#sidebar h2{
-    margin-top: 10px;
-    margin-bottom: 0px;
-}
+/***************/   
+/**** 480 - ****/
+/***************/
 
-#personeList ul, #personeList li, #gruppiList ul, #gruppilist li{
-    display: inline-block;
-    list-style-type: none;
-    padding-left: 0px;
-    margin-bottom: 4px;
-}
-
-#personeList .propic{
-    display: inline-block;
-    float: left;
-}
-
-#personeList li p, #gruppiList li p{
-    display: inline-block;
-    line-height: 25px;
-    height: 25px;
-    width: 165px;
-    margin: 0px;
-    margin-left: 10px;
-}
-
-#personeList li p{
-    float: left;
-}
-
-#gruppiList li{
-    display: inline-box;
-    background-image: url(img/gruppo.png);
-    background-repeat: no-repeat;
-    background-position: 0px 0px;
-    padding-left: 25px;
-    float: left;
-    margin-bottom: 10px;
-}
-
-#gruppi h2{
-    display: inline-box;
-    background-image: url(img/gruppoPiu.png);
-    background-repeat: no-repeat;
-    background-position: 160px 0px;
-    background-size: 40px 40px;
-}
-
-#title{
-    height: 40px;
-    width: 440px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    margin-top: 50px;
-}
-
-#title h1{
-    width:360px;
-    margin-right: 40px;
-    float: right;
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-#title .icona{
-    float:left;
+@media only screen and (max-width: 480px){
+    body{
+        background-color: blue;
+    }    
 }
