@@ -593,9 +593,13 @@ nav li.attuale{
     }
     
     #sidebar h2{
-        margin-top: 15px;
+        margin-top: 0px;
         margin-left: 20px;
         margin-bottom: 10px;
+    }
+    
+    #sidebar #gruppi h2{
+        margin-top: 20px;
     }
     
     #sidebar ul, #sidebar li{
@@ -625,8 +629,8 @@ nav li.attuale{
     }
     
     #stato{
-        position: relative;
-        top: 20px;
+        position: absolute;
+        top: 0px;
         left: 150px;
         height: 30px;
         padding: 0px;
@@ -653,7 +657,7 @@ nav li.attuale{
     
     #bacheca{
         position: absolute;
-        top: 60px;
+        top: 40px;
         left: 145px;
         right: 0px;
         display: inline-block;
@@ -663,12 +667,10 @@ nav li.attuale{
         box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
     
-    
     #bacheca .post{
         margin: 10px;
         padding: 10px;
     }
-    
     
     #bacheca .post .propic{
         display: inline-block;
@@ -690,8 +692,7 @@ nav li.attuale{
         width: 100%;
         margin-top: 10px;
     }
-    
-    
+      
     #bacheca .post .allegato{
         display: inline-block;
         margin-top: -5px;
@@ -798,6 +799,303 @@ nav li.attuale{
 
 @media only screen and (max-width: 480px){
     body{
-        background-color: blue;
+        position: relative;
+        top: 0px;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0px;
+    } 
+    
+    h1{
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0px;
+    }
+    
+    h2{
+        font-size: 25px;
+        line-height: 35px;
+    }
+    
+    h3{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    input{
+        display: block;
+        line-height: 24px; 
+        text-indent: 5px;
+    }
+    
+    header.barra, #navbar, #logo, nav, #login{
+        height: 75px;
+    }
+    
+    header.barra, #navbar{
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        margin: 0px;
+        width: 100%;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+    
+    #logo{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    #logo h1{
+        line-height: 50px;
+    }
+    
+    #login{
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+    }
+    
+    #login p{
+        position: absolute;
+        top: 0px;
+        height: 30px;
+        width: 100px;
+        margin: 0px;
+        padding-top: 5px;
+        font-size: 10px;
+    }
+        
+    #login a{
+        position: relative;
+        top: 15px;
+        height: 25px;
+        font-size: 10px;
+    }
+    
+    #login .propic{
+        display: none;
+    }
+    
+    nav{
+        position: absolute;
+        top: 50px;
+        left: 0px;
+        display: inline-block;
+        height: 25px;
+        width: 100%;
+    }
+    
+    nav ul{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        height: 25px;
+    }
+    
+    nav li{
+        height: 22px;
+        width: 49%;
+        margin: 0px;
+    }
+    
+    #desc{
+        display: none;
+    }
+    
+    
+    #divBody{
+        display: inline-block;
+        position: relative;
+        top: 75px;
+        left: 0px;
+        margin-top: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #sidebar{
+        display: inline-block;
+        position: relative;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 10px;
+    }
+    
+    #sidebar h2{
+        margin-top: 0px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    #sidebar ul, #sidebar li{
+        display: inline-block;
+        padding-left: 0px;
+        margin: 0px;
+        width: 100%;
+        
     }    
+
+    #personeList .propic{
+        display: none;
+    }
+    
+    #persone, #gruppi{
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    #persone li p, #gruppi li p{
+        display: block;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 5px;
+        text-indent: 15px;
+    }
+    
+    #bacheca .post, #formProfilo, #formLogin, #descrizione, #stato{
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    
+    #stato{
+        position: relative;
+        top: 20px;
+        float: left;
+        height: 60px;
+        width: 100%;
+        padding: 0px;
+        display: inline-blockblock;
+    }
+    
+    #stato .propic{
+        float: left;
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        margin:10px;
+        margin-right: 5px;
+    }
+    
+    #stato p{
+        display: inline-block;
+        float: left;
+        margin: 0px;
+        line-height: 30px;
+        height: 30px;
+        width: 100%;
+        text-indent: 70px;
+        margin-left: -60px;
+    }
+    
+    #bacheca{
+        position: relative;
+        top: 20px;
+        width: 100%;
+        display: inline-block;
+    }
+    
+    #bacheca .post{
+        margin: 10px;
+        padding: 10px;
+    }
+    
+    #bacheca .post .propic{
+        display: inline-block;
+        float: left;
+        width: 30px;
+        height: 30px;
+    }
+    
+    #bacheca .post h3{
+        display: inline-block;
+        float: left;
+        margin-left: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    #bacheca .post p{
+        display: inline-block;
+        width: 100%;
+        margin-top: 10px;
+    }
+      
+    #bacheca .post .allegato{
+        display: inline-block;
+        margin-top: -5px;
+        width: 100%;
+    }
+    
+    #formProfilo, #descrizione, #formLogin{
+        position: relative;
+        top: 20px;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    #descrizione *{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    #formProfilo .propic{
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    
+    #formProfilo form, #formLogin form{
+        padding: 10px;
+    }
+    
+    #formProfilo label, #formProfilo input, #formLogin label, #formLogin input{
+        display: inline-block;
+        margin-bottom: 3px;
+        width: 100%;
+    }
+
+    #formProfilo input, #formLogin input{
+        margin-bottom: 10px;
+        margin-left: -2px;
+    }
+    
+    #formProfilo #data{
+        text-indent: 2px;
+    }
+    
+    #title{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    #title h1{
+        font-size: 50px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+    
 }
