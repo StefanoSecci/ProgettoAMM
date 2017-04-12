@@ -416,21 +416,11 @@ nav li.attuale{
 
     #gruppiList li{
         display: inline-box;
-        background-image: url(img/gruppo.png);
-        background-repeat: no-repeat;
-        background-position: 0px 0px;
         padding-left: 25px;
         float: left;
         margin-bottom: 10px;
     }
-
-    #gruppi h2{
-        display: inline-box;
-        background-image: url(img/gruppoPiu.png);
-        background-repeat: no-repeat;
-        background-position: 160px 0px;
-        background-size: 40px 40px;
-    }
+    
 
     #title{
         height: 40px;
@@ -439,10 +429,6 @@ nav li.attuale{
         margin-right: auto;
         margin-bottom: 50px;
         margin-top: 50px;
-        background-image: url(img/nerd.png);
-        background-position: 0px 0px;
-        background-repeat: no-repeat;
-        background-size: 40px 40px;
     }
 
     #title h1{
@@ -456,6 +442,33 @@ nav li.attuale{
     
     #descrizione h2{
         margin-top: 0px;
+    }
+    
+    
+    
+    /** immagini decorative **/
+    
+    
+    
+    #title{
+        background-image: url(img/nerd.png);
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+    }
+    
+    #gruppiList li{
+        background-image: url(img/gruppo.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+    }
+    
+    #gruppi h2{
+        display: inline-box;
+        background-image: url(img/gruppoPiu.png);
+        background-repeat: no-repeat;
+        background-position: 160px 0px;
+        background-size: 40px 40px;
     }
 
 }
@@ -1099,3 +1112,14 @@ nav li.attuale{
     }
     
 }
+
+
+/***** task 4 *****/
+
+/* le regole per le immagini decorative sono isolate in fondo alla sezione 
+ * con le regole per schermi di risoluzione maggiore a 1024 px */
+
+/* le immagini del profilo e quelle allegate nei post contengono informazione e 
+ * quindi prescindono dallo stile. mentre i loghi dei gruppi e l'icone per 
+ * aggiungerne altri possono cambiare con lo stile. stesso discorso per il logo
+ * nella pagina di login. */
