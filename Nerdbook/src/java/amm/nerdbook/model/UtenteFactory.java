@@ -103,6 +103,16 @@ public class UtenteFactory {
         user7.setPassword("qwerty7");
         user7.setUrlFotoProfilo("img/mark.jpg");
         
+        // user7 id 7, utente incompleto
+        Utente user8 = new Utente();
+        user8.setId(7);
+        user8.setNome(null);
+        user8.setCognome("Incompleto");
+        user8.setDataNascita(new Date(2017, 5, 4));
+        user8.setFrasePresentazione(null);
+        user8.setPassword("qwerty8");
+        user8.setUrlFotoProfilo(null);
+        
         //creazione amicizie
         
         //lester -> steve, bill, mark
@@ -152,6 +162,7 @@ public class UtenteFactory {
         listaUtenti.add(user5);
         listaUtenti.add(user6);
         listaUtenti.add(user7);
+        listaUtenti.add(user8);
         
     }
 

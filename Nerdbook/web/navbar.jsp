@@ -23,7 +23,8 @@
                 <div id="login">
                     <img class="propic" alt="immagine profilo" src="${utenteLoggato.getUrlFotoProfilo()}"/>
                     <p>${utenteLoggato.getUsername()}</p>
-                    <a href="login.html">logout</a>
+                    <a href="Login?logout=1">logout</a>
+                    
                 </div>
             </div>
         </header>

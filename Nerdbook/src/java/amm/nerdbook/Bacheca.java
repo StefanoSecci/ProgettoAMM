@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -50,67 +51,80 @@ public class Bacheca extends HttpServlet {
         Utente proprietarioBacheca = null;
         Gruppo gruppoBacheca = null;
 
-        utenteLoggato = 0; //Da sostituire con utente loggato
-
-        if(user != null){
-
-            userID = Integer.parseInt(user);
-            proprietarioBacheca = UtenteFactory.getInstance().getUtenteById(userID);
-
-        } else if(group != null)
-        {
-            groupID = Integer.parseInt(group);
-            gruppoBacheca = GruppoFactory.getInstance().getGruppoById(groupID);
-            
-            
-        }else
-        {
-            proprietarioBacheca = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
-        }
-
+        HttpSession session = request.getSession(false);
         
-        // variabili per navbar e sidebar
-        loggato = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
-
-        if(loggato != null){
-
-            List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
-            List<Gruppo> gruppi = GruppoFactory.getInstance().getListaGruppi();
+        if(session!=null && 
+           session.getAttribute("loggedIn")!=null &&
+           session.getAttribute("loggedIn").equals(true)){
             
-            request.setAttribute("utenteLoggato", loggato);
-            request.setAttribute("utenti", utenti);
-            request.setAttribute("gruppi", gruppi);
+            
+            
+            utenteLoggato = (Integer)session.getAttribute("loggedUserID");
 
-            //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+            if(user != null){
 
-        } else {
+                userID = Integer.parseInt(user);
+                proprietarioBacheca = UtenteFactory.getInstance().getUtenteById(userID);
 
-            //response.setStatus(HttpServletResponse.SC_NOT_FOUND, "non puoi accedere a questa pagina perchè non sei loggato");
+            } else if(group != null)
+            {
+                groupID = Integer.parseInt(group);
+                gruppoBacheca = GruppoFactory.getInstance().getGruppoById(groupID);
 
+
+            }else
+            {
+                proprietarioBacheca = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
+            }
+
+
+            // variabili per navbar e sidebar
+            loggato = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
+
+            if(loggato != null){
+
+                List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
+                List<Gruppo> gruppi = GruppoFactory.getInstance().getListaGruppi();
+
+                request.setAttribute("utenteLoggato", loggato);
+                request.setAttribute("utenti", utenti);
+                request.setAttribute("gruppi", gruppi);
+
+                //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+
+            } else {
+
+                //response.setStatus(HttpServletResponse.SC_NOT_FOUND, "non puoi accedere a questa pagina perchè non sei loggato");
+
+            }
+
+            //se sono nella bacheca di un utente
+            if(proprietarioBacheca != null){
+
+                List<Post> posts = PostFactory.getInstance().getPostByUtente(proprietarioBacheca);
+
+                request.setAttribute("proprietario", proprietarioBacheca);
+                request.setAttribute("posts", posts);
+
+                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+
+            } else if (gruppoBacheca != null){
+
+                List<Post> posts = PostFactory.getInstance().getPostByGruppo(gruppoBacheca);
+
+                request.setAttribute("gruppo", gruppoBacheca);
+                request.setAttribute("posts", posts);
+                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+
+            }else{
+
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+
+            }
+            
         }
-        
-        //se sono nella bacheca di un utente
-        if(proprietarioBacheca != null){
-            
-            List<Post> posts = PostFactory.getInstance().getPostByUtente(proprietarioBacheca);
-
-            request.setAttribute("proprietario", proprietarioBacheca);
-            request.setAttribute("posts", posts);
-            
-            request.getRequestDispatcher("bacheca.jsp").forward(request, response);
-
-        } else if (gruppoBacheca != null){
-            
-            List<Post> posts = PostFactory.getInstance().getPostByGruppo(gruppoBacheca);
-
-            request.setAttribute("gruppo", gruppoBacheca);
-            request.setAttribute("posts", posts);
-            request.getRequestDispatcher("bacheca.jsp").forward(request, response);
-            
-        }else{
-
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-
+        else{
+            request.getRequestDispatcher("Login").forward(request, response);
         }
     }
 

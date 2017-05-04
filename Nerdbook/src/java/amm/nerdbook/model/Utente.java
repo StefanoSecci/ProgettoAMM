@@ -141,6 +141,10 @@ public class Utente {
     
     public String getUsername() 
     {
+        if (this.nome == null || this.cognome == null)
+        {
+            return "user" + this.id;
+        }
         return nome + " " + cognome;
     }
     
