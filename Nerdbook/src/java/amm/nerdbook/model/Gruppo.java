@@ -71,22 +71,7 @@ public class Gruppo {
         this.listaMembri = listaMembri;
     }
     
-    @Override
-    public boolean equals(Object o){
-        if(this == o)
-        {
-            return true;
-        } 
-        if (o == null)
-        {
-            return false;
-        }
-        
-        Gruppo other = (Gruppo) o;
-        
-        return this.getId() == other.getId();
-    }
-
+    
     /**
      * @return the admin
      */

@@ -99,4 +99,13 @@ public class GruppoFactory {
         }
         return listaGruppo;
     }
+    
+    public List getListaGruppi() {
+
+        List<Gruppo> groupList = new ArrayList<Gruppo>();
+
+        groupList = this.listaGruppi;
+        
+        return groupList;
+    }
 }

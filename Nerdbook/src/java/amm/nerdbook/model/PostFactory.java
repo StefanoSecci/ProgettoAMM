@@ -47,7 +47,7 @@ public class PostFactory {
         post1.setGroup(null);
         post1.setPostType(Post.Type.IMAGE);
         post1.setContent("mi è apparsa questa schermata, che faccio? :-O");
-        post1.setUrlAllegato("M2/img/Schermata-blu.jpg");
+        post1.setUrlAllegato("img/Schermata-blu.jpg");
         
         Post post2 = new Post();
         post2.setId(2);
@@ -78,7 +78,7 @@ public class PostFactory {
         post4.setGroup(null);
         post4.setPostType(Post.Type.IMAGE);
         post4.setContent("grande è questa imagine? mi che grande ched'è!");
-        post4.setUrlAllegato("M2/img/grande.jpg");
+        post4.setUrlAllegato("img/grande.jpg");
         
         Post post5 = new Post();
         post5.setId(5);
@@ -132,19 +132,22 @@ public class PostFactory {
         List<Post> listaPost = new ArrayList<Post>();
 
         for (Post post : this.listaPost) {
-            if (post.getUser().equals(usr)) {
+            if ( post.getUser()!= null && post.getUser().equals(usr)){
                 listaPost.add(post);
             }
         }
+        
         return listaPost;
     }
+    
+    
     
     public List getPostByGruppo(Gruppo gr) {
 
         List<Post> listaPost = new ArrayList<Post>();
 
         for (Post post : this.listaPost) {
-            if (post.getGroup().equals(gr)) {
+            if (post.getGroup()!= null && post.getGroup().equals(gr) ) {
                 listaPost.add(post);
             }
         }

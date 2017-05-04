@@ -15,14 +15,14 @@
                     <ul>
                         
                         <li <c:if test="${page=='profilo'}">class="attuale"</c:if>><a href="profilo.html">profilo</a></li>
-                        <li <c:if test="${page=='bacheca'}">class="attuale"</c:if>><a href="bacheca.html">bacheca</a></li>
+                        <li <c:if test="${page=='bacheca'}">class="attuale"</c:if>><a href="Bacheca">bacheca</a></li>
                        
                     </ul>
                 </nav>
 
                 <div id="login">
-                    <img class="propic" alt="immagine profilo" src="http://media.gtanet.com/gta-5/images/characters/lester-crest_t.jpg"/>
-                    <p>nome da mettere</p>
+                    <img class="propic" alt="immagine profilo" src="${utenteLoggato.getUrlFotoProfilo()}"/>
+                    <p>${utenteLoggato.getUsername()}</p>
                     <a href="login.html">logout</a>
                 </div>
             </div>

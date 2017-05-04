@@ -7,6 +7,7 @@ package amm.nerdbook.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -79,7 +80,7 @@ public class UtenteFactory {
         user5.setDataNascita(new Date(1955, 2, 24));
         user5.setFrasePresentazione("think different, Finkbrau");
         user5.setPassword("qwerty5");
-        user5.setUrlFotoProfilo("M2/img/steve.jpg");
+        user5.setUrlFotoProfilo("img/steve.jpg");
         
         
         //bill id 5
@@ -90,7 +91,7 @@ public class UtenteFactory {
         user6.setDataNascita(new Date(1955, 10, 28));
         user6.setFrasePresentazione("il successo porta cattivi consigli");
         user6.setPassword("qwerty6");
-        user6.setUrlFotoProfilo("M2/img/bill.jpg");
+        user6.setUrlFotoProfilo("img/bill.jpg");
         
         //mark id 6
         Utente user7 = new Utente();
@@ -100,7 +101,7 @@ public class UtenteFactory {
         user7.setDataNascita(new Date(1984, 5, 14));
         user7.setFrasePresentazione("quanto costa questo sito?");
         user7.setPassword("qwerty7");
-        user7.setUrlFotoProfilo("M2/img/mark.jpg");
+        user7.setUrlFotoProfilo("img/mark.jpg");
         
         //creazione amicizie
         
@@ -178,6 +179,15 @@ public class UtenteFactory {
             }
         }
         return -1;
+    }
+    
+    public List getListaUtenti() {
+
+        List<Utente> userList = new ArrayList<Utente>();
+
+        userList = this.listaUtenti;
+        
+        return userList;
     }
     
     

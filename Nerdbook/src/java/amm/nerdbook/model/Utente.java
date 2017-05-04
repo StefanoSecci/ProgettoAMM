@@ -144,7 +144,7 @@ public class Utente {
         return nome + " " + cognome;
     }
     
-    @Override
+    /*@Override
     public boolean equals(Object o){
         if(this == o)
         {
@@ -158,7 +158,7 @@ public class Utente {
         Utente other = (Utente) o;
         
         return this.getId() == other.getId();
-    }
+    }*/
 
     /**
      * @return the listaAmici
