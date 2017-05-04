@@ -116,6 +116,11 @@ nav li.attuale{
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+#descrizione h1{
+    text-align: center;
+    font-variant: normal;
+}
+
 #invalidDataWarning{
     background-color: red;
     border: 2px solid #111111;
@@ -340,7 +345,7 @@ nav li.attuale{
         display: inline-block;
     }
 
-    #bacheca .post ,#descrizione{
+    #bacheca .post {
         width: 738px;
         margin-top: 10px;
         margin-bottom: 10px;
@@ -426,7 +431,7 @@ nav li.attuale{
     }
 
     #gruppiList li{
-        display: inline-box;
+        display: inline-block;
         padding-left: 25px;
         float: left;
         margin-bottom: 10px;
@@ -434,8 +439,8 @@ nav li.attuale{
     
 
     #title{
-        height: 40px;
-        width: 440px;
+        height: 60px;
+        width: 500px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 50px;
@@ -443,17 +448,38 @@ nav li.attuale{
     }
 
     #title h1{
-        width:360px;
+        width:440px;
         margin-right: 40px;
         float: right;
         text-align: center;
         margin-top: 0px;
         margin-bottom: 0px;
+        font-size: 60px;
     }
     
     #descrizione h2{
         margin-top: 0px;
     }
+    
+    #descrizione h1{
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    
+    
+    
+    .primoLogin{
+        display: inline-block;
+        position: absolute;
+        
+        right: 50px;
+        top: 50px;
+        text-align: center;
+        font-size: 25px;
+        line-height: 30px;
+    }
+    
+    
     
     
     
@@ -465,7 +491,7 @@ nav li.attuale{
         background-image: url(img/nerd.png);
         background-position: 0px 0px;
         background-repeat: no-repeat;
-        background-size: 40px 40px;
+        background-size: 60px 60px;
     }
     
     #gruppiList li{
@@ -475,7 +501,7 @@ nav li.attuale{
     }
     
     #gruppi h2{
-        display: inline-box;
+        display: inline-block;
         background-image: url(img/gruppoPiu.png);
         background-repeat: no-repeat;
         background-position: 160px 0px;
@@ -726,10 +752,14 @@ nav li.attuale{
     #formProfilo, #descrizione{
         position: absolute;
         top: 10px;
-        left: 140px;
+        left: 10px;
         right: 10px;
         display: inline-block;
         padding: 10px;
+    }
+    
+    #formProfilo{
+        left: 140px;
     }
     
     #formProfilo .propic{
@@ -814,6 +844,17 @@ nav li.attuale{
     
     #descrizione h2{
         margin-top: 0px;
+    }
+    
+    .primoLogin{
+        display: inline-block;
+        position: absolute;
+        
+        right: 30px;
+        top: 10px;
+        text-align: center;
+        font-size: 25px;
+        line-height: 30px;
     }
 }
 
@@ -1073,7 +1114,13 @@ nav li.attuale{
         margin-bottom: 40px;
     }
     
+    #descrizione{
+        top: -50px;
+        padding-top: 10px;
+    }
+    
     #descrizione *{
+  
         margin-left: 10px;
         margin-right: 10px;
     }
@@ -1120,6 +1167,17 @@ nav li.attuale{
         text-align: center;
         margin-top: 20px;
         margin-bottom: 0px;
+    }
+    
+    .primoLogin{
+        
+        
+        margin-bottom: 0px;
+        margin-right: auto;
+        margin-top: auto;
+        text-align: center;
+        font-size: 25px;
+        line-height: 30px;
     }
     
 }
