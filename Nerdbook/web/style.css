@@ -57,6 +57,8 @@ input {
     outline: none;
 }
 
+
+
 input:focus{
     outline: none;
     border: 2px solid #ff9900;
@@ -1094,7 +1096,7 @@ nav li.attuale{
         height: 60px;
         width: 100%;
         padding: 0px;
-        display: inline-blockblock;
+        /*display: inline-block;*/
     }
     
     #stato .propic{

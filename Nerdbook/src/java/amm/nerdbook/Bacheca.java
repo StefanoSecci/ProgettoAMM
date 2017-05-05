@@ -89,12 +89,15 @@ public class Bacheca extends HttpServlet {
             request.setAttribute("gruppi", gruppi);
 
             // form bacheca
+            
             String groupd = request.getParameter("groupd");
             String userd = request.getParameter("userd");
             String userp = request.getParameter("userp");
             String testo = request.getParameter("testo");
             String allegato = request.getParameter("allegato");
             String tipo = request.getParameter("tipo");
+            String click = request.getParameter("click");
+            
             
             if(userp != null)
             {
@@ -107,6 +110,7 @@ public class Bacheca extends HttpServlet {
             
             if(userID == utenteLoggato)
             {
+                
                 if ( testo != null || allegato != null )
                 {
                     request.setAttribute("testo", testo);
@@ -126,7 +130,15 @@ public class Bacheca extends HttpServlet {
                 }
                 else
                 {
-                    request.setAttribute("click", 2);
+                    if(click != null && click.equals("2"))
+                    {
+                        request.setAttribute("click", 2);
+                    }
+                    else
+                    {
+                        request.setAttribute("click", 0);
+                    }
+                    //request.setAttribute("click", 0);
                 }
                 
                 //request.getRequestDispatcher("bacheca.jsp").forward(request, response);

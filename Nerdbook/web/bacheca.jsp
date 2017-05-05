@@ -52,6 +52,8 @@ and open the template in the editor.
 
             <div id="bacheca">
                 
+                
+                
                 <div id="formPost" class="post">
                     
                     
@@ -98,22 +100,66 @@ and open the template in the editor.
                 </div>
                                
                 <c:if test="${click == 1}">
+                    <div id="formPost" class="post">
+                        <c:if test="${proprietario != null}">
+                            <c:set var="urlAction2" value="Bacheca?user=${proprietario.getId()}&click=2"/> 
+                        </c:if>
+                        <c:if test="${gruppo != null}">
+                            <c:set var="urlAction2" value="Bacheca?group=${gruppo.getId()}&click=2"/>
+                        </c:if>
+                        <form action="${urlAction2}" method="post">
+                            <h3>Riepilogo </h3>
+
+                            <p><strong>autore:</strong> ${utenteLoggato.getUsername()}</h2>
+
+                            <c:if test="${!empty proprietario}">
+                                <p><strong>destinatario:</strong> ${proprietario.getUsername()}</p>
+                                    <!-- proprietario bacheca -->
+                            </c:if>
+                            <c:if test="${!empty gruppo}">
+                                <p><strong>gruppo:</strong> ${gruppo.getNomeGruppo()}</p>
+                            </c:if>
+
+                            <c:if test="${!empty testo}">
+                                <p><strong>messaggio:</strong> ${testo}</p>
+                            </c:if>
+
+                            <c:if test="${!empty tipo}">
+                                <p><strong>tipo:</strong> ${tipo}</p>
+                                <c:if test="${!empty allegato}">
+                                    <p><strong>url:</strong>${allegato}</p>
+                                </c:if>
+                            </c:if>
+
+                            
+
+
+                            <button type="submit">conferma</button>
+                        </form>
+                    </div>        
+                </c:if>
+                               
+                <c:if test="${click == 2}">
                     
                     <c:if test="${!empty proprietario}">
                         <h3>Hai scritto sulla bacheca di <a href="bacheca.html?user=0${proprietario.getId()}">${proprietario.getUsername()}</a></h3>
                             <!-- proprietario bacheca -->
                     </c:if>
+                            
+                            
                     <c:if test="${!empty gruppo}">
                         <h3>Hai scritto sulla bacheca di <a href="bacheca.html?group=0${gruppo.getId()}">${gruppo.getNomeGruppo()}</a></h3>
                     </c:if>
                     
+                        
+                    <!--
                     <div class="post">
-                        <!-- il nuovo post creato -->
+                        
                         
                         
                         <img class="propic" alt="foto profilo" src="${utenteLoggato.getUrlFotoProfilo()}">
                         <h3><a href="bacheca.html?user=0${utenteLoggato.getId()}">${utenteLoggato.getUsername()}</a></h3>
-                        <!-- autore post -->
+                        
                         <p>${testo}</p>
                         <c:if test="${tipo == 'link'}">
                             <a class="allegato" href="${allegato}">${allegato}</a>
@@ -124,7 +170,7 @@ and open the template in the editor.
                         
                         
                     </div>
-                    
+                    -->
                 </c:if>
                 
                 <c:forEach var="post" items="${posts}">
