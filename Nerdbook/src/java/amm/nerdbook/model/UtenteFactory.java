@@ -6,7 +6,6 @@
 package amm.nerdbook.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,7 +36,7 @@ public class UtenteFactory {
         user1.setId(0);
         user1.setNome("Lester");
         user1.setCognome("Crest");
-        user1.setDataNascita(new Date(1960, 9, 17));
+        user1.setDataNascita("1960-09-17");
         user1.setFrasePresentazione("Welcome to paradise.");
         user1.setPassword("password");
         user1.setUrlFotoProfilo("http://media.gtanet.com/gta-5/images/characters/lester-crest_t.jpg");
@@ -47,7 +46,7 @@ public class UtenteFactory {
         user2.setId(1);
         user2.setNome("Aldo");
         user2.setCognome("Baglio");
-        user2.setDataNascita(new Date(1958, 9, 28));
+        user2.setDataNascita("1958-09-28");
         user2.setFrasePresentazione("ora non posso ne scendere ne salire, ne scendere ne salire!");
         user2.setPassword("qwerty2");
         user2.setUrlFotoProfilo("http://scontent.cdninstagram.com/t51.2885-19/s150x150/14033682_1638964053080704_540705153_a.jpg");
@@ -57,7 +56,7 @@ public class UtenteFactory {
         user3.setId(2);
         user3.setNome("Giovanni");
         user3.setCognome("Storti");
-        user3.setDataNascita(new Date(1957, 2, 20));
+        user3.setDataNascita("1957-02-20");
         user3.setFrasePresentazione("l'arte è un lavoro sporco, qualcuno deve pur farlo");
         user3.setPassword("qwerty3");
         user3.setUrlFotoProfilo("http://www.milanodavedere.it/wp-content/uploads/giovanni-storti-150x150.jpg");
@@ -67,7 +66,7 @@ public class UtenteFactory {
         user4.setId(3);
         user4.setNome("Giacomo");
         user4.setCognome("Poretti");
-        user4.setDataNascita(new Date(1956, 4, 26));
+        user4.setDataNascita("1956-04-26");
         user4.setFrasePresentazione("chiedimi se sono felice!");
         user4.setPassword("qwerty4");
         user4.setUrlFotoProfilo("http://www.farodiroma.it/wp-content/uploads/2017/03/Giacomo-Poretti-1%C2%BA-piano1-150x150.jpg");
@@ -77,7 +76,7 @@ public class UtenteFactory {
         user5.setId(4);
         user5.setNome("Steve");
         user5.setCognome("Jobs");
-        user5.setDataNascita(new Date(1955, 2, 24));
+        user5.setDataNascita("1955-02-24");
         user5.setFrasePresentazione("think different, Finkbrau");
         user5.setPassword("qwerty5");
         user5.setUrlFotoProfilo("img/steve.jpg");
@@ -88,7 +87,7 @@ public class UtenteFactory {
         user6.setId(5);
         user6.setNome("Bill");
         user6.setCognome("Gates");
-        user6.setDataNascita(new Date(1955, 10, 28));
+        user6.setDataNascita("1955-10-28");
         user6.setFrasePresentazione("il successo porta cattivi consigli");
         user6.setPassword("qwerty6");
         user6.setUrlFotoProfilo("img/bill.jpg");
@@ -98,7 +97,7 @@ public class UtenteFactory {
         user7.setId(6);
         user7.setNome("Mark");
         user7.setCognome("Zuckerberg");
-        user7.setDataNascita(new Date(1984, 5, 14));
+        user7.setDataNascita("1984-05-14");
         user7.setFrasePresentazione("quanto costa questo sito?");
         user7.setPassword("qwerty7");
         user7.setUrlFotoProfilo("img/mark.jpg");
@@ -108,10 +107,10 @@ public class UtenteFactory {
         user8.setId(7);
         user8.setNome(null);
         user8.setCognome("Incompleto");
-        user8.setDataNascita(new Date(2017, 5, 4));
+        user8.setDataNascita("1000-10-10");
         user8.setFrasePresentazione(null);
         user8.setPassword("qwerty8");
-        user8.setUrlFotoProfilo(null);
+        user8.setUrlFotoProfilo("http://www.gssi.infn.it/images/studenti-ritratti/no-utente.jpg");
         
         //creazione amicizie
         

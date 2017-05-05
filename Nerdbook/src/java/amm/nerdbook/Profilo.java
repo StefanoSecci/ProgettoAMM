@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,56 +40,100 @@ public class Profilo extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("user");
-        String group = request.getParameter("group");
-
+        
+        
         int userID;
-        int groupID;
+        
         int utenteLoggato;
+        
         Utente loggato = null;
         Utente proprietarioBacheca = null;
         Gruppo gruppoBacheca = null;
 
-        utenteLoggato = 0; //Da sostituire con utente loggato
-
-        if(user != null){
-
-            userID = Integer.parseInt(user);
-            proprietarioBacheca = UtenteFactory.getInstance().getUtenteById(userID);
-
-        } else if(group != null)
-        {
-            groupID = Integer.parseInt(group);
-            gruppoBacheca = GruppoFactory.getInstance().getGruppoById(groupID);
-            
-            
-        }else
-        {
-            proprietarioBacheca = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
-        }
-
+        HttpSession session = request.getSession(false);
         
-        // variabili per navbar e sidebar
-        loggato = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
-
-        if(loggato != null){
+        if(session!=null && 
+           session.getAttribute("loggedIn")!=null &&
+           session.getAttribute("loggedIn").equals(true)){
+            
+            
+            
+            utenteLoggato = (Integer)session.getAttribute("loggedUserID");
+            
+            // variabili per navbar e sidebar
+            loggato = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
 
             List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
             List<Gruppo> gruppi = GruppoFactory.getInstance().getListaGruppi();
-            
+
             request.setAttribute("utenteLoggato", loggato);
             request.setAttribute("utenti", utenti);
             request.setAttribute("gruppi", gruppi);
 
-            //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+            //logica profilo
+            request.setAttribute("click", 0);
+            
+            String newNome = request.getParameter("name");
+            String newCognome = request.getParameter("surname");
+            String newDataNascita = request.getParameter("data");
+            String newPropic = request.getParameter("propic");
+            String newFrase = request.getParameter("frase");
+            String newPassword = request.getParameter("pswd");
+            String confPsw = request.getParameter("confpswd");
+            String userp = request.getParameter("userp");
+            
+            if(userp != null)
+            {
+                userID = Integer.parseInt(userp);
+            }
+            else
+            {
+                userID = utenteLoggato;
+            }
+            
+            if(userID == utenteLoggato)
+            {
+                if ( newNome != null || newCognome != null 
+                        || newDataNascita != null || newPropic != null 
+                        || newFrase != null || newPassword != null
+                        || confPsw != null)
+                {
+                    if(newPassword != null && confPsw != null && newPassword.equals(confPsw) )
+                    {
+                        request.setAttribute("newNome", newNome);
+                        request.setAttribute("newCognome", newCognome);
+                        request.setAttribute("newDataNascita", newDataNascita);
+                        request.setAttribute("newPropic", newPropic);
+                        request.setAttribute("newFrase", newFrase);
+                        request.setAttribute("newPassword", newPassword);
+                        //request.setAttribute("ggg", userp);
+                        
+                        
+                        request.setAttribute("click", 1);
+                    }
+                    else
+                    {
+                        request.setAttribute("click", 2);
 
-        } else {
+                    }
+                    
+                    
+                }
+                
+                request.getRequestDispatcher("profilo.jsp").forward(request, response);
+            }
+            
+            else{
+                response.sendError(400, "stai tentando di modifiare i dati di un profilo che non ti appartiene!");
 
-            //response.setStatus(HttpServletResponse.SC_NOT_FOUND, "non puoi accedere a questa pagina perchè non sei loggato");
-
+            }
+            
+            
         }
-        
-        request.getRequestDispatcher("profilo.jsp").forward(request, response);
+        else{
+            
+            response.sendError(400, "accesso non consentito agli utenti non autenticati");
+        }
         
     }
 

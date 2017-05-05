@@ -129,6 +129,24 @@ nav li.attuale{
     margin: 10px;
     margin-bottom: 15px;
 }
+
+.datiProfilo{
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 15px;
+}
+
+.datiProfilo h3{
+    margin-top: 0px;
+    text-align: center;
+    
+    margin-bottom: 3px;
+}
+
+#formProfilo #userp{
+    display: none;
+    visibility: hidden;
+}
     
 /****************/   
 /**** 1024 + ****/
@@ -275,25 +293,40 @@ nav li.attuale{
         height: 25px;
         width: 25px;
     }
+    
+    #login #fotoENome{
+        position: relative;
+        display: inline-block;
+        top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-    #login .propic{
-        margin-top:12px;
-        margin-left: 35px;
-        float: left;
+    #login #fotoENome .propic{
+        position: relative;
+        display: inline-block;
+        top: 0px;
+        left: 0px;
+        margin: 0px;
+        
+    }
+
+    #login #fotoENome p{
+        position: relative;
+        display: inline-block;
+        top: 0px;
+        right: 0px;
+        height: 25px;
+        padding-top: 0px;
+        font-size: 17px;
+        margin: 0px;
     }
 
     #login p{
-        margin-right: 30px;
-        height: 19px;
-        margin-top: 12px;
-        margin-bottom: 0px;
-        font-size: 17px;
-    }
-
-    #login a{
-        margin-right: 30px;
-        margin-top: 0px;
+        
+        margin-top: 5px;
         font-size: 12px;
+        text-align: center;
     }
 
     #divBody{
@@ -1181,6 +1214,7 @@ nav li.attuale{
     }
     
 }
+
 
 
 /***** task 4 *****/

@@ -81,22 +81,14 @@ public class Bacheca extends HttpServlet {
             // variabili per navbar e sidebar
             loggato = UtenteFactory.getInstance().getUtenteById(utenteLoggato);
 
-            if(loggato != null){
+            List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
+            List<Gruppo> gruppi = GruppoFactory.getInstance().getListaGruppi();
 
-                List<Utente> utenti = UtenteFactory.getInstance().getListaUtenti();
-                List<Gruppo> gruppi = GruppoFactory.getInstance().getListaGruppi();
+            request.setAttribute("utenteLoggato", loggato);
+            request.setAttribute("utenti", utenti);
+            request.setAttribute("gruppi", gruppi);
 
-                request.setAttribute("utenteLoggato", loggato);
-                request.setAttribute("utenti", utenti);
-                request.setAttribute("gruppi", gruppi);
-
-                //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
-
-            } else {
-
-                //response.setStatus(HttpServletResponse.SC_NOT_FOUND, "non puoi accedere a questa pagina perchè non sei loggato");
-
-            }
+            
 
             //se sono nella bacheca di un utente
             if(proprietarioBacheca != null){
@@ -118,13 +110,13 @@ public class Bacheca extends HttpServlet {
 
             }else{
 
-                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(404, "pagina non trovata");
 
             }
             
         }
         else{
-            request.getRequestDispatcher("Login").forward(request, response);
+            response.sendError(400, "accesso non consentito agli utenti non autenticati");
         }
     }
 

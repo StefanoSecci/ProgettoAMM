@@ -5,7 +5,7 @@
  */
 package amm.nerdbook.model;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 /**
  *
@@ -18,7 +18,7 @@ public class Utente {
     private int id;
     private String nome;
     private String cognome;
-    private Date dataNascita;
+    private String dataNascita; // formato yyyy-mm-dd
     private String frasePresentazione;
     private String password;
     private String urlFotoProfilo;
@@ -30,7 +30,7 @@ public class Utente {
         id = 0;
         nome = "";
         cognome = "";
-        dataNascita = new Date();
+        dataNascita = "";
         frasePresentazione = "";
         password = "";
         urlFotoProfilo = "";
@@ -84,14 +84,15 @@ public class Utente {
     /**
      * @return the dataNascita
      */
-    public Date getDataNascita() {
+    public String getDataNascita() {
+        
         return dataNascita;
     }
 
     /**
      * @param dataNascita the dataNascita to set
      */
-    public void setDataNascita(Date dataNascita) {
+    public void setDataNascita(String dataNascita) {
         this.dataNascita = dataNascita;
     }
 

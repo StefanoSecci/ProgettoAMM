@@ -14,16 +14,19 @@
                 <nav>
                     <ul>
                         
-                        <li <c:if test="${page=='profilo'}">class="attuale"</c:if>><a href="profilo.html">profilo</a></li>
-                        <li <c:if test="${page=='bacheca'}">class="attuale"</c:if>><a href="Bacheca">bacheca</a></li>
+                        <li <c:if test="${page=='profilo'}">class="attuale"</c:if>><a href="profilo.html?user=0${utenteLoggato.getId()}">profilo</a></li>
+                        <li <c:if test="${page=='bacheca'}">class="attuale"</c:if>><a href="bacheca.html?user=0${utenteLoggato.getId()}">bacheca</a></li>
                        
                     </ul>
                 </nav>
 
                 <div id="login">
-                    <img class="propic" alt="immagine profilo" src="${utenteLoggato.getUrlFotoProfilo()}"/>
-                    <p>${utenteLoggato.getUsername()}</p>
-                    <a href="Login?logout=1">logout</a>
+                    <div id="fotoENome">
+                        <img class="propic" alt="immagine profilo" src="${utenteLoggato.getUrlFotoProfilo()}"/>
+                        <p>${utenteLoggato.getUsername()}</p>
+                    </div>
+                    
+                    <p><a href="Login?logout=1">logout</a></p>
                     
                 </div>
             </div>
