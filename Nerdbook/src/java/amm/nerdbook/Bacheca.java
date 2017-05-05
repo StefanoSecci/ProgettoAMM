@@ -88,7 +88,55 @@ public class Bacheca extends HttpServlet {
             request.setAttribute("utenti", utenti);
             request.setAttribute("gruppi", gruppi);
 
+            // form bacheca
+            String groupd = request.getParameter("groupd");
+            String userd = request.getParameter("userd");
+            String userp = request.getParameter("userp");
+            String testo = request.getParameter("testo");
+            String allegato = request.getParameter("allegato");
+            String tipo = request.getParameter("tipo");
             
+            if(userp != null)
+            {
+                userID = Integer.parseInt(userp);
+            }
+            else
+            {
+                userID = utenteLoggato;
+            }
+            
+            if(userID == utenteLoggato)
+            {
+                if ( testo != null || allegato != null )
+                {
+                    request.setAttribute("testo", testo);
+                    request.setAttribute("tipo", tipo);
+                    request.setAttribute("allegato", allegato);
+                    
+                    if(userd != null)
+                    {
+                        request.setAttribute("proprietario", proprietarioBacheca);
+                    }
+                    else
+                    {
+                        request.setAttribute("gruppo", gruppoBacheca);
+                    }
+                     
+                    request.setAttribute("click", 1);
+                }
+                else
+                {
+                    request.setAttribute("click", 2);
+                }
+                
+                //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+            }
+            
+            else{
+                
+                response.sendError(400, "stai tentando di utilizzare un profilo che non ti appartiene!");
+                return;
+            }
 
             //se sono nella bacheca di un utente
             if(proprietarioBacheca != null){
@@ -98,7 +146,7 @@ public class Bacheca extends HttpServlet {
                 request.setAttribute("proprietario", proprietarioBacheca);
                 request.setAttribute("posts", posts);
 
-                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                
 
             } else if (gruppoBacheca != null){
 
@@ -106,13 +154,16 @@ public class Bacheca extends HttpServlet {
 
                 request.setAttribute("gruppo", gruppoBacheca);
                 request.setAttribute("posts", posts);
-                request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                
 
             }else{
 
                 response.sendError(404, "pagina non trovata");
 
             }
+            
+            
+            request.getRequestDispatcher("bacheca.jsp").forward(request, response);
             
         }
         else{

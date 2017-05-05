@@ -14,8 +14,8 @@
                 <nav>
                     <ul>
                         
-                        <li <c:if test="${page=='profilo'}">class="attuale"</c:if>><a href="profilo.html?user=0${utenteLoggato.getId()}">profilo</a></li>
-                        <li <c:if test="${page=='bacheca'}">class="attuale"</c:if>><a href="bacheca.html?user=0${utenteLoggato.getId()}">bacheca</a></li>
+                        <li <c:if test="${page=='profilo'}">class="attuale"</c:if>><a href="profilo.html">profilo</a></li>
+                        <li <c:if test="${page=='bacheca'}">class="attuale"</c:if>><a href="bacheca.html">bacheca</a></li>
                        
                     </ul>
                 </nav>

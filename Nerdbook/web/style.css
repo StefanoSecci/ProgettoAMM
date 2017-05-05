@@ -38,12 +38,23 @@ a:hover{
     border-radius: 5%;
 }
 
-input{
+input {
     outline: none;
     border: 2px solid #555555;
     background: white;
     color: #333333;
     font-family: 'Tauri', Charcoal, sans-serif;
+}
+
+#foto, #link{
+    background: none;
+    border: none;
+}
+
+#foto:focus, #link:focus, #foto:active, #link:active{
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 input:focus{
@@ -143,9 +154,15 @@ nav li.attuale{
     margin-bottom: 3px;
 }
 
-#formProfilo #userp{
+#formProfilo #userp, #formPost .hidden{
     display: none;
     visibility: hidden;
+}
+
+#formPost input
+{
+    width: 100%;
+    
 }
     
 /****************/   

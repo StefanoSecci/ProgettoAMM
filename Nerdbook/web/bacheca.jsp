@@ -51,6 +51,82 @@ and open the template in the editor.
 
 
             <div id="bacheca">
+                
+                <div id="formPost" class="post">
+                    
+                    
+                    <c:if test="${proprietario != null}">
+                        <c:set var="urlAction" value="Bacheca?user=${proprietario.getId()}"/> 
+                    </c:if>
+                    <c:if test="${gruppo != null}">
+                        <c:set var="urlAction" value="Bacheca?group=${gruppo.getId()}"/>
+                    </c:if>
+                    <form action="${urlAction}" method="post">
+                        
+                        <input type="text" name="testo" id="testo"
+                               value="Testo nuovo Post" />
+
+                        
+                        <input type="url" name="allegato" id="allegato"
+                               value="URL allegato (opzionale)" />
+                        
+                        
+                        <label for="foto">immagine</label>
+                        <input type="radio" name="tipo" id="foto"
+                               value="foto"/>
+                        
+                        <label for="foto">link</label>
+                        <input type="radio" name="tipo" id="link"
+                               value="link"/>
+                     
+
+                        
+                        <!-- variabili per capire bacheca e autore -->
+                       
+                        <input class="hidden" type="text" name="userp" id="userp"
+                               value="${utenteLoggato.getId()}" />
+                        
+                        <input class="hidden" type="text" name="userd" id="userd"
+                               value="${proprietario.getId()}" />
+                        
+                        <input class="hidden" type="text" name="groupd" id="groupd"
+                               value="${gruppo.getId()}" />
+
+                        <button type="submit">Crea post</button>
+                    </form>
+                    
+                </div>
+                               
+                <c:if test="${click == 1}">
+                    
+                    <c:if test="${!empty proprietario}">
+                        <h3>Hai scritto sulla bacheca di <a href="bacheca.html?user=0${proprietario.getId()}">${proprietario.getUsername()}</a></h3>
+                            <!-- proprietario bacheca -->
+                    </c:if>
+                    <c:if test="${!empty gruppo}">
+                        <h3>Hai scritto sulla bacheca di <a href="bacheca.html?group=0${gruppo.getId()}">${gruppo.getNomeGruppo()}</a></h3>
+                    </c:if>
+                    
+                    <div class="post">
+                        <!-- il nuovo post creato -->
+                        
+                        
+                        <img class="propic" alt="foto profilo" src="${utenteLoggato.getUrlFotoProfilo()}">
+                        <h3><a href="bacheca.html?user=0${utenteLoggato.getId()}">${utenteLoggato.getUsername()}</a></h3>
+                        <!-- autore post -->
+                        <p>${testo}</p>
+                        <c:if test="${tipo == 'link'}">
+                            <a class="allegato" href="${allegato}">${allegato}</a>
+                        </c:if>
+                        <c:if test="${tipo == 'foto'}">
+                            <img class="allegato" alt="immagine allegato" src="${allegato}">
+                        </c:if>
+                        
+                        
+                    </div>
+                    
+                </c:if>
+                
                 <c:forEach var="post" items="${posts}">
                     <div class="post">
                         <img class="propic" alt="foto profilo" src="${post.getAutore().getUrlFotoProfilo()}">
