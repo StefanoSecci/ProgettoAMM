@@ -22,6 +22,18 @@ public class PostFactory {
         }
         return singleton;
     }
+    
+    //Gestione DB
+    private String connectionString;
+    
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+            return this.connectionString;
+    }
+    //Fine gestione DB
 
     private ArrayList<Post> listaPost = new ArrayList<Post>();
 

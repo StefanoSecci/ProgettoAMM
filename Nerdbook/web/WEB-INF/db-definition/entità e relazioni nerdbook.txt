@@ -1,0 +1,48 @@
+ENTITA'
+
+utente:
+- id int
+- nome string
+- cognome string
+- dataNascita date
+- frasePresentazione string
+- password string
+- urlFotoProfilo string
+- superUtente boolean
+
+gruppo:
+- id int
+- nome string
+
+postType:
+- id int
+- nomeTipo 
+
+post:
+- id int
+- content string
+- urlAllegato sring
+
+RELAZIONI
+
+amicizie:
+- da utente a utente N:N
+
+admin gruppo:
+- da utente a gruppo 1:N
+
+membri gruppo:
+- da utente a gruppo N:N
+
+post bacheca utente:
+- da post a utente 1:N
+
+post gruppo:
+- da post a gruppo 1:N
+
+post autore:
+- da post a utente 1:N
+
+tipo di post
+-da post a postType 1:N
+

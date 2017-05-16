@@ -22,6 +22,18 @@ public class UtenteFactory {
         }
         return singleton;
     }
+    
+    //Gestione DB
+    private String connectionString;
+    
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+            return this.connectionString;
+    }
+    //Fine gestione DB
 
     private ArrayList<Utente> listaUtenti = new ArrayList<Utente>();
 
