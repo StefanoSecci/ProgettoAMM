@@ -5,6 +5,7 @@
  */
 package amm.nerdbook.model;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -18,23 +19,24 @@ public class Utente {
     private int id;
     private String nome;
     private String cognome;
-    private String dataNascita; // formato yyyy-mm-dd
+    private Date dataNascita; // formato yyyy-mm-dd
     private String frasePresentazione;
     private String password;
     private String urlFotoProfilo;
-    private ArrayList<Utente> listaAmici;
+    private boolean superUtente;
+    private String username;
     
     //costruttori
 
     public Utente() {
         id = 0;
-        nome = "";
-        cognome = "";
-        dataNascita = "";
-        frasePresentazione = "";
-        password = "";
-        urlFotoProfilo = "";
-        listaAmici = new ArrayList<Utente>();
+        nome = null;
+        cognome = null;
+        dataNascita = null;
+        frasePresentazione = null;
+        password = null;
+        urlFotoProfilo = null;
+        superUtente = false;
     }
 
     //set e get
@@ -84,18 +86,7 @@ public class Utente {
     /**
      * @return the dataNascita
      */
-    public String getDataNascita() {
-        
-        return dataNascita;
-    }
-
-    /**
-     * @param dataNascita the dataNascita to set
-     */
-    public void setDataNascita(String dataNascita) {
-        this.dataNascita = dataNascita;
-    }
-
+    
     /**
      * @return the frasePresentazione
      */
@@ -138,44 +129,42 @@ public class Utente {
         this.urlFotoProfilo = urlFotoProfilo;
     }
     
-    //metodi
+    
+
+    /**
+     * @return the dataNascita
+     */
+    public Date getDataNascita() {
+        return dataNascita;
+    }
+
+    /**
+     * @param dataNascita the dataNascita to set
+     */
+    public void setDataNascita(Date dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    /**
+     * @return the superUtente
+     */
+    public boolean isSuperUtente() {
+        return superUtente;
+    }
+
+    /**
+     * @param superUtente the superUtente to set
+     */
+    public void setSuperUtente(boolean superUtente) {
+        this.superUtente = superUtente;
+    }
+
+    void setUsername(String username) {
+        this.username = username;
+    }
     
     public String getUsername() 
     {
-        if (this.nome == null || this.cognome == null)
-        {
-            return "user" + this.id;
-        }
-        return nome + " " + cognome;
-    }
-    
-    /*@Override
-    public boolean equals(Object o){
-        if(this == o)
-        {
-            return true;
-        } 
-        if (o == null)
-        {
-            return false;
-        }
-        
-        Utente other = (Utente) o;
-        
-        return this.getId() == other.getId();
-    }*/
-
-    /**
-     * @return the listaAmici
-     */
-    public ArrayList<Utente> getListaAmici() {
-        return listaAmici;
-    }
-
-    /**
-     * @param listaAmici the listaAmici to set
-     */
-    public void setListaAmici(ArrayList<Utente> listaAmici) {
-        this.listaAmici = listaAmici;
+        return this.username;
     }
 }

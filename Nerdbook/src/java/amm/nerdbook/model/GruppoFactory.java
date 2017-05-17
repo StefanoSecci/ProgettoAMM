@@ -5,6 +5,11 @@
  */
 package amm.nerdbook.model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,51 +41,43 @@ public class GruppoFactory {
     }
     //Fine gestione DB
 
-    private ArrayList<Gruppo> listaGruppi = new ArrayList<Gruppo>();
+    //private ArrayList<Gruppo> listaGruppi = new ArrayList<Gruppo>();
 
-    private GruppoFactory() {
-        UtenteFactory userFactory = UtenteFactory.getInstance();
-        ArrayList<Utente> temp = new ArrayList<Utente>();
-        
-        //Creazione utenti
-        
-        //applefag id 0
-        //admin: steve
-        //membri: aldo, giovanni, mark
-        Gruppo group1 = new Gruppo();
-        group1.setId(0);
-        group1.setNomeGruppo("AppleFag");
-        group1.setAdmin(userFactory.getUtenteById(4));
-        temp.add(userFactory.getUtenteById(1));
-        temp.add(userFactory.getUtenteById(2));
-        temp.add(userFactory.getUtenteById(6));
-        group1.setListaMembri(temp);
-        
-        temp.clear();
-        
-        //commodore zone id 1
-        //admin: lester
-        //membri: gicomo, giovanni
-        Gruppo group2 = new Gruppo();
-        group2.setId(1);
-        group2.setNomeGruppo("Commodore Zone");
-        group2.setAdmin(userFactory.getUtenteById(0));
-        temp.add(userFactory.getUtenteById(3));
-        temp.add(userFactory.getUtenteById(2));
-        group2.setListaMembri(temp);
-        
-        temp.clear();
-        
-        listaGruppi.add(group1);
-        listaGruppi.add(group2);
-        
-    }
+    private GruppoFactory() {}
 
     public Gruppo getGruppoById(int id) {
-        for (Gruppo group : this.listaGruppi) {
-            if (group.getId() == id) {
-                return group;
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            
+            String query = 
+                      "select * from gruppo "
+                    + "where id_gruppo = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, id);
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            if (res.next()) {
+                Gruppo current = new Gruppo();
+                current = this.compilaGruppo(res);
+
+                stmt.close();
+                conn.close();
+                return current;
             }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -89,11 +86,37 @@ public class GruppoFactory {
 
         List<Gruppo> listaGruppo = new ArrayList<Gruppo>();
 
-        for (Gruppo gruppo : this.listaGruppi) {
-            if (gruppo.getAdmin().equals(usr)) {
-                listaGruppo.add(gruppo);
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            
+            String query = 
+                      "select * from gruppo "
+                    + "where admin = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, usr.getId());
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                Gruppo current = new Gruppo();
+                current = this.compilaGruppo(res);
+
+                listaGruppo.add(current);
             }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        
         return listaGruppo;
     }
     
@@ -101,23 +124,86 @@ public class GruppoFactory {
 
         List<Gruppo> listaGruppo = new ArrayList<Gruppo>();
 
-        for (Gruppo gruppo : this.listaGruppi) {
-            for (Utente membro : gruppo.getListaMembri()) {
-                if (membro.equals(usr)) {
-                    listaGruppo.add(gruppo);
-                }
-            }
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
             
+            String query = 
+                      "select gruppo.id_gruppo, gruppo.nome, gruppo.admin "
+                    + "from gruppo join appartenenzaGruppo "
+                    + "on gruppo.id_gruppo = appartenenzaGruppo.gruppo "
+                    + "where utente = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, usr.getId());
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                Gruppo current = new Gruppo();
+                current = this.compilaGruppo(res);
+
+                listaGruppo.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        
         return listaGruppo;
     }
     
     public List getListaGruppi() {
+        List<Gruppo> listaGruppo = new ArrayList<Gruppo>();
 
-        List<Gruppo> groupList = new ArrayList<Gruppo>();
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            
+            String query = 
+                      "select * from gruppo order by nome";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
 
-        groupList = this.listaGruppi;
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                Gruppo current = new Gruppo();
+                current = this.compilaGruppo(res);
+
+                listaGruppo.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         
-        return groupList;
+        return listaGruppo;
+        
+    }
+    
+    // prende un result set e crea un gruppo in java
+    private Gruppo compilaGruppo(ResultSet res) throws SQLException{
+        UtenteFactory utenteFactory = UtenteFactory.getInstance();
+        Gruppo current = new Gruppo();
+        
+        current.setId(res.getInt("id_gruppo"));
+        current.setNomeGruppo(res.getString("nome"));
+        Utente admin = utenteFactory.getUtenteById(res.getInt("admin"));
+        current.setAdmin(admin);
+        
+        return current;
     }
 }

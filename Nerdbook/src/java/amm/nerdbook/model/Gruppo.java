@@ -16,7 +16,7 @@ public class Gruppo {
     private int id;
     private String nomeGruppo;
     private Utente admin;
-    private ArrayList<Utente> listaMembri;
+    
     
     //costruttori
     
@@ -24,7 +24,7 @@ public class Gruppo {
     {
         id = 0;
         nomeGruppo = "";
-        listaMembri = new ArrayList<Utente>();
+        admin = null;
     }
     
     //set e get
@@ -60,16 +60,6 @@ public class Gruppo {
     /**
      * @return the listaMembri
      */
-    public ArrayList<Utente> getListaMembri() {
-        return listaMembri;
-    }
-
-    /**
-     * @param listaMembri the listaMembri to set
-     */
-    public void setListaMembri(ArrayList<Utente> listaMembri) {
-        this.listaMembri = listaMembri;
-    }
     
     
     /**
