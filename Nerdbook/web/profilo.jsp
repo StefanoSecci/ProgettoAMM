@@ -85,9 +85,7 @@ and open the template in the editor.
 
                         <label for="data">Nato il</label>
                         <input type="date" name="data" id="data"
-                               value="${utenteLoggato.getDataNascita()}" />
-
-
+                               value="${utenteLoggato.getDataNascitaString()}" />
 
                         <label for="propic">Immagine del profilo</label>
                         <input type="url" name="propic" id="propic"

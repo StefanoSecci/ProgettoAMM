@@ -90,66 +90,67 @@ public class Bacheca extends HttpServlet {
 
             // form bacheca
             
-            String groupd = request.getParameter("groupd");
-            String userd = request.getParameter("userd");
-            String userp = request.getParameter("userp");
-            String testo = request.getParameter("testo");
-            String allegato = request.getParameter("allegato");
-            String tipo = request.getParameter("tipo");
-            String click = request.getParameter("click");
-            
-            
-            if(userp != null)
-            {
-                userID = Integer.parseInt(userp);
-            }
-            else
-            {
-                userID = utenteLoggato;
-            }
-            
-            if(userID == utenteLoggato)
+            if(request.getParameter("thereIsPost")!=null)
             {
                 
-                if ( testo != null || allegato != null )
+                String thereIsPost = request.getParameter("thereIsPost");
+                String userd = request.getParameter("userd");
+                String groupd = request.getParameter("groupd");
+                String userp = request.getParameter("userp");
+                String testo = request.getParameter("testo");
+                String allegato = request.getParameter("allegato");
+                String tipo = request.getParameter("tipo");
+                
+                if(userp != null)
                 {
-                    request.setAttribute("testo", testo);
-                    request.setAttribute("tipo", tipo);
-                    request.setAttribute("allegato", allegato);
-                    
-                    if(userd != null)
-                    {
-                        request.setAttribute("proprietario", proprietarioBacheca);
-                    }
-                    else
-                    {
-                        request.setAttribute("gruppo", gruppoBacheca);
-                    }
-                     
-                    request.setAttribute("click", 1);
+                    userID = Integer.parseInt(userp);
                 }
                 else
                 {
-                    if(click != null && click.equals("2"))
-                    {
-                        request.setAttribute("click", 2);
-                    }
-                    else
-                    {
-                        request.setAttribute("click", 0);
-                    }
-                    //request.setAttribute("click", 0);
+                    userID = utenteLoggato;
                 }
                 
-                //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                if(userID == utenteLoggato)
+                {
+                
+                    if(thereIsPost.equals("needConfirm")){
+                        
+                        request.setAttribute("userp2", userp);
+                        request.setAttribute("userd2", userd);
+                        request.setAttribute("groupd2", groupd);
+                        request.setAttribute("testo2", testo);
+                        request.setAttribute("tipo2", tipo);
+                        request.setAttribute("allegato2", allegato);
+                        request.setAttribute("newpost", "true");
+                        //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                        
+                    }
+                    else{
+                        //salvo
+                        request.setAttribute("newpost", "false");
+                        
+                        
+                        /*Post post = new Post();
+                        post.setContent(content);
+                        if(type.equals("textType"))
+                            post.setPostType(Post.Type.TEXT);
+                        else
+                            post.setPostType(Post.Type.IMAGE);
+
+                        post.setUser(GattoFactory.getInstance().getGattoById((Integer)session.getAttribute("loggedUserID")));
+                        PostFactory.getInstance().addNewPost(post);*/
+                        //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
+                    }
+                    
+                }else
+                {
+                    response.sendError(400, "stai tentando di utilizzare un profilo che non ti appartiene!");
+                    return;
+                }
             }
             
-            else{
-                
-                response.sendError(400, "stai tentando di utilizzare un profilo che non ti appartiene!");
-                return;
-            }
-
+            
+            //generazione post
             //se sono nella bacheca di un utente
             if(proprietarioBacheca != null){
 

@@ -13,7 +13,14 @@ import amm.nerdbook.model.Utente;
 import amm.nerdbook.model.UtenteFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import static java.util.Calendar.DAY_OF_MONTH;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,6 +56,7 @@ public class Profilo extends HttpServlet {
         Utente loggato = null;
         Utente proprietarioBacheca = null;
         Gruppo gruppoBacheca = null;
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
         HttpSession session = request.getSession(false);
         
@@ -102,7 +110,14 @@ public class Profilo extends HttpServlet {
                     {
                         request.setAttribute("newNome", newNome);
                         request.setAttribute("newCognome", newCognome);
-                        request.setAttribute("newDataNascita", newDataNascita);
+                        try {
+                            Date date = df.parse(newDataNascita);
+                            String dn = date.getDate() + "/" + date.getMonth() + "/" + date.getYear();
+                            request.setAttribute("newDataNascita", dn);
+                        } catch (ParseException ex) {
+                            Logger.getLogger(Profilo.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                         request.setAttribute("newPropic", newPropic);
                         request.setAttribute("newFrase", newFrase);
                         request.setAttribute("newPassword", newPassword);

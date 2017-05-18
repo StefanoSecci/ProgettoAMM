@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package amm.nerdbook.model;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -137,12 +140,24 @@ public class Utente {
     public Date getDataNascita() {
         return dataNascita;
     }
+    
+    public String getDataNascitaString() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        
+        return df.format(this.dataNascita);
+    }
 
     /**
      * @param dataNascita the dataNascita to set
      */
     public void setDataNascita(Date dataNascita) {
         this.dataNascita = dataNascita;
+    }
+    
+    public void setDataNascita(String dataNascita) throws ParseException {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        
+        this.dataNascita = df.parse(dataNascita);
     }
 
     /**
