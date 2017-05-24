@@ -50,6 +50,7 @@ public class Bacheca extends HttpServlet {
         Utente loggato = null;
         Utente proprietarioBacheca = null;
         Gruppo gruppoBacheca = null;
+        
 
         HttpSession session = request.getSession(false);
         
@@ -121,7 +122,22 @@ public class Bacheca extends HttpServlet {
                         request.setAttribute("testo2", testo);
                         request.setAttribute("tipo2", tipo);
                         request.setAttribute("allegato2", allegato);
-                        request.setAttribute("newpost", "true");
+                        if(tipo.equals("text") && (testo == null || testo.equals("")))
+                        {
+                            request.setAttribute("errorMessage", "non puoi pubblicare un post vuoto!");
+                            
+                            
+                        }else if((tipo.equals("link") || tipo.equals("image")) && (allegato == null || allegato.equals("")))
+                        {
+                            request.setAttribute("errorMessage", "specificare l'url dell'allegato");
+                            
+                        }
+                        else
+                        {
+                            request.setAttribute("newpost", "true");
+                        }
+                        
+                        
                         //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
                         
                     }

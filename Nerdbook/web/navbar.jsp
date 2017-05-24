@@ -23,7 +23,7 @@
                 <div id="login">
                     <div id="fotoENome">
                         <img class="propic" alt="immagine profilo" src="${utenteLoggato.getUrlFotoProfilo()}"/>
-                        <p>${utenteLoggato.getUsername()}</p>
+                        <p>${utenteLoggato.getNomeCognome()}</p>
                     </div>
                     
                     <p><a href="Login?logout=1">logout</a></p>

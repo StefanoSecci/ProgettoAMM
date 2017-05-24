@@ -13,7 +13,7 @@
                 <c:forEach var="usr" items="${utenti}">    
                     <li>
                         <img class="propic" alt="immagine profilo" src="${usr.getUrlFotoProfilo()}"/>
-                        <p><a href="bacheca.html?user=0${usr.getId()}">${usr.getUsername()}</a></p>
+                        <p><a href="bacheca.html?user=0${usr.getId()}">${usr.getNomeCognome()}</a></p>
                     </li>
                 </c:forEach>    
                 

@@ -28,6 +28,7 @@ h2, h3{
 a:link, a:visited{
     text-decoration: none;
     color: #ff9900;
+    word-wrap: break-word;
 }
 
 a:hover{
@@ -45,18 +46,6 @@ input {
     color: #333333;
     font-family: 'Tauri', Charcoal, sans-serif;
 }
-
-#foto, #link{
-    background: none;
-    border: none;
-}
-
-#foto:focus, #link:focus, #foto:active, #link:active{
-    border: none;
-    box-shadow: none;
-    outline: none;
-}
-
 
 
 input:focus{
@@ -161,9 +150,35 @@ nav li.attuale{
     visibility: hidden;
 }
 
+
 #formPost input
 {
     width: 100%;
+    margin-bottom: 15px;
+    
+}
+
+
+
+#formPost .labelERadio{
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+#formPost .labelERadio label{
+    float: left;
+    
+}
+
+#formPost #image, #formPost #link, #formPost #text{
+    width: auto;
+    background: none;
+    border: none;
+    float: left;
+    border: none;
+    box-shadow: none;
+    outline: none;
     
 }
     
@@ -599,11 +614,12 @@ nav li.attuale{
     }
     
     header.barra, #navbar, #logo, nav, #login{
+        z-index: 100;
         height: 50px;
     }
     
     header.barra, #navbar{
-        position: relative;
+        position: fixed;
         top: 0;
         left: 0;
         margin: 0px;
@@ -680,7 +696,7 @@ nav li.attuale{
     #divBody{
         display: inline-block;
         position: relative;
-        top: 0px;
+        top: 50px;
         left: 0px;
         margin-top: 0px;
         width: 100%;
@@ -731,11 +747,20 @@ nav li.attuale{
     }
     
     #stato{
-        position: absolute;
-        top: 0px;
-        left: 150px;
-        height: 30px;
-        padding: 0px;
+        position: relative;
+        top: 5px;
+        margin-left: 150px;
+        margin-right: 0px;
+        right: 0px;
+        /*height: 30px;*/
+        display: inline-block;
+        margin-bottom: 5px;
+  
+    }
+    
+    #stato #statop{
+        position: relative;
+        right: 0px;
         display: inline-block;
     }
     
@@ -754,15 +779,18 @@ nav li.attuale{
         margin: 0px;
         margin-left: 3px;
         line-height: 30px;
-        height: 30px;
+        /*height: 30px;*/
+        
     }
     
     #bacheca{
-        position: absolute;
-        top: 40px;
-        left: 145px;
+        position: relative;
+        /*top: 40px;*/
+        margin-left: 145px;
+        margin-right: 0px;
         right: 0px;
-        display: inline-block;
+        /*display: inline-block;*/
+        
     }
     
     #bacheca .post, #formProfilo, #formLogin, #descrizione{
@@ -770,6 +798,8 @@ nav li.attuale{
     }
     
     #bacheca .post{
+        position: relative;
+        right: 0px;
         margin: 10px;
         padding: 10px;
     }
@@ -794,11 +824,27 @@ nav li.attuale{
         width: 100%;
         margin-top: 10px;
     }
+    
+    #bacheca .post #allegatoLink{
+        display: inline-block;
+        /*width: 100%;*/
+        margin-top: -5px;
+        word-wrap: break-word;
+    }
       
     #bacheca .post .allegato{
         display: inline-block;
         margin-top: -5px;
         width: 100%;
+    }
+    
+    #bacheca .post input{
+        display: inline-block;
+        width: 100%;
+    }
+    
+    #bacheca .post .hidden{
+        display: none;
     }
     
     #formProfilo, #descrizione{
@@ -1093,30 +1139,24 @@ nav li.attuale{
         position: relative;
         top: 20px;
         float: left;
-        height: 60px;
+        height: auto;
         width: 100%;
         padding: 0px;
-        /*display: inline-block;*/
+        display: inline-block;
     }
     
     #stato .propic{
-        float: left;
-        display: inline-block;
+        display: none;
+        /*float: left;
         height: 40px;
         width: 40px;
         margin:10px;
-        margin-right: 5px;
+        margin-right: 5px;*/
     }
     
-    #stato p{
-        display: inline-block;
-        float: left;
-        margin: 0px;
-        line-height: 30px;
-        height: 30px;
-        width: 100%;
-        text-indent: 70px;
-        margin-left: -60px;
+    .statop{
+        margin: 10px;
+
     }
     
     #bacheca{
@@ -1146,7 +1186,7 @@ nav li.attuale{
         margin-bottom: 0px;
     }
     
-    #bacheca .post p{
+    #bacheca .post p, #stato #statop p{
         display: inline-block;
         width: 100%;
         margin-top: 10px;

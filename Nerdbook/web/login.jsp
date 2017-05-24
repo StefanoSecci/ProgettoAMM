@@ -40,11 +40,11 @@
             <form action="Login" method="post">
                 <label for="user">Nome Utente</label>
                 <input type="text" name="userLogin" id="user"
-                       value="username" />
+                       placeholder="username" />
                 
                 <label for="pswd">Password</label>
                 <input type="password" name="pswdLogin" id="pswd"
-                       value="password" />
+                       placeholder="password" />
                 
                 <button type="submit">Accedi</button>
             </form>

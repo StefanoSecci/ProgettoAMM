@@ -10,8 +10,8 @@ create table utente(
     password varchar(16) not null,
     urlFotoProfilo varchar(256),
     superUtente boolean not null,
-    username varchar(64) unique,
-    unique (nome, cognome)
+    username varchar(64) not null unique
+    
 );
 
 create table postType(
@@ -52,14 +52,14 @@ create table appartenenzaGruppo(
 -- popolazione tabelle
 
 insert into utente(id_utente, username, nome, cognome, dataNascita, frasePresentazione, password, urlFotoProfilo, superUtente)
-values 	(default, 'Lester Crest','Lester', 'Crest', '1960-09-17', 'Welcome to paradise.', 'password', 'http://media.gtanet.com/gta-5/images/characters/lester-crest_t.jpg', true),
-	(default, 'Aldo Baglio', 'Aldo', 'Baglio', '1958-09-28', 'ora non posso ne scendere ne salire, ne scendere ne salire!', 'qwerty2', 'http://scontent.cdninstagram.com/t51.2885-19/s150x150/14033682_1638964053080704_540705153_a.jpg', false),
-        (default, 'Giovanni Storti', 'Giovanni', 'Storti', '1957-02-20', 'l''arte è un lavoro sporco, qualcuno deve pur farlo', 'qwerty3', 'http://www.milanodavedere.it/wp-content/uploads/giovanni-storti-150x150.jpg', false),
-        (default, 'Giacomo Poretti', 'Giacomo', 'Poretti', '1956-04-26', 'chiedimi se sono felice!', 'qwerty4', 'http://www.farodiroma.it/wp-content/uploads/2017/03/Giacomo-Poretti-1%C2%BA-piano1-150x150.jpg', false),
-        (default, 'Steve Jobs', 'Steve', 'Jobs', '1955-02-24', 'think different, Finkbrau', 'qwerty5', 'img/steve.jpg', false),
-        (default, 'Bill Gates', 'Bill', 'Gates', '1955-10-28', 'il successo porta cattivi consigli', 'qwerty6', 'img/bill.jpg', false),
-        (default, 'Mark Zuckerberg', 'Mark', 'Zuckerberg', '1984-05-14', 'quanto costa questo sito?', 'qwerty7', 'img/mark.jpg', false),
-        (default, 'user8', null, 'Incompleto', '1000-10-10', null, 'qwerty8', 'http://www.gssi.infn.it/images/studenti-ritratti/no-utente.jpg', false);
+values 	(default, 'Lester','Lester', 'Crest', '1960-09-17', 'Welcome to paradise.', 'password', 'http://media.gtanet.com/gta-5/images/characters/lester-crest_t.jpg', true),
+	(default, 'Aldo', 'Aldo', 'Baglio', '1958-09-28', 'ora non posso ne scendere ne salire, ne scendere ne salire!', 'qwerty', 'http://scontent.cdninstagram.com/t51.2885-19/s150x150/14033682_1638964053080704_540705153_a.jpg', false),
+        (default, 'Giovanni', 'Giovanni', 'Storti', '1957-02-20', 'l''arte è un lavoro sporco, qualcuno deve pur farlo', 'qwerty', 'http://www.milanodavedere.it/wp-content/uploads/giovanni-storti-150x150.jpg', false),
+        (default, 'Giacomo', 'Giacomo', 'Poretti', '1956-04-26', 'chiedimi se sono felice!', 'qwerty', 'http://www.farodiroma.it/wp-content/uploads/2017/03/Giacomo-Poretti-1%C2%BA-piano1-150x150.jpg', false),
+        (default, 'Steve_Jobs', 'Steve', 'Jobs', '1955-02-24', 'think different, Finkbrau', 'qwerty', 'img/steve.jpg', false),
+        (default, 'Bill_Gates', 'Bill', 'Gates', '1955-10-28', 'il successo porta cattivi consigli', 'qwerty', 'img/bill.jpg', false),
+        (default, 'Mark_Zuckerberg', 'Mark', 'Zuckerberg', '1984-05-14', 'quanto costa questo sito?', 'qwerty', 'img/mark.jpg', false),
+        (default, 'utenteIncompleto', null, 'Incompleto', '1000-10-10', null, 'qwerty', 'http://www.gssi.infn.it/images/studenti-ritratti/no-utente.jpg', false);
 		
 insert into postType(id_postType, nome)
 values 	(default, 'text'), -- 1

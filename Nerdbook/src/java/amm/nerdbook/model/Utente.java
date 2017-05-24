@@ -182,4 +182,17 @@ public class Utente {
     {
         return this.username;
     }
+    
+    public String getNomeCognome()
+    {
+        if(this.nome != null && this.cognome != null)
+        {
+            return this.nome + " " + this.cognome;
+        }
+        else
+        {
+            return this.getUsername();
+        }
+        
+    }
 }

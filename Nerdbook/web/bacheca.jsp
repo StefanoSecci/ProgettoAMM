@@ -35,8 +35,10 @@ and open the template in the editor.
             <c:if test="${proprietario != null}">
                 <div id="stato">
                     <img class="propic" alt="foto profilo" src="${proprietario.getUrlFotoProfilo()}"/>
-                    <p><strong>${proprietario.getUsername()}: </strong></p>
-                    <p>${proprietario.getFrasePresentazione()}</p>
+                    
+                        <p class="statop"><strong>${proprietario.getNomeCognome()}: </strong></p>
+                        <p class="statop" id="statoFrase">${proprietario.getFrasePresentazione()}</p>
+                    
                 </div>
             </c:if>
             <c:if test="${gruppo != null}">
@@ -61,28 +63,39 @@ and open the template in the editor.
                             <c:if test="${gruppo != null}">
                                 <c:set var="urlAction" value="Bacheca?group=${gruppo.getId()}"/>
                             </c:if>
+                            
+                            <c:if test="${!empty errorMessage}">
+                                <div id="invalidDataWarning">${errorMessage}</div>
+                            </c:if>
+                            
                             <form action="${urlAction}" method="post">
 
                                 <input type="text" name="testo" id="testo"
-                                       value="Testo nuovo Post" />
+                                       placeholder="Testo nuovo Post" />
 
 
                                 <input type="url" name="allegato" id="allegato"
-                                       value="URL allegato (opzionale)" />
+                                       placeholder="URL allegato (opzionale)" />
+                                <div id="formPostType">
+                                    <div class="labelERadio">
+                                        <label for="text">testo</label>
+                                        <input type="radio" name="tipo" id="text"
+                                           value="text" checked="checked"/>
+                                    </div>
 
-                                <label for="text">testo</label>
-                                <input type="radio" name="tipo" id="text"
-                                       value="text" checked="checked"/>
+                                    <div class="labelERadio">
+                                        <label for="image">immagine</label>
+                                        <input type="radio" name="tipo" id="image"
+                                           value="image"/>
+                                    </div>
 
-                                <label for="image">immagine</label>
-                                <input type="radio" name="tipo" id="image"
-                                       value="image"/>
-
-                                <label for="link">link</label>
-                                <input type="radio" name="tipo" id="link"
-                                       value="link"/>
-
-
+                                    <div class="labelERadio">
+                                        <label for="link">link</label>
+                                        <input type="radio" name="tipo" id="link"
+                                           value="link"/>
+                                    </div>
+                                </div>
+                                
 
                                 <!-- variabili per capire bacheca e autore -->
 
@@ -111,14 +124,14 @@ and open the template in the editor.
                             <form action="${urlAction2}" method="post">
                                 <h3>Riepilogo </h3>
 
-                                <p><strong>autore:</strong> ${utenteLoggato.getUsername()}</h2>
+                                <p><strong>autore:</strong> ${utenteLoggato.getNomeCognome()}</h2>
 
                                 <c:if test="${!empty userd2}">
-                                    <p><strong>destinatario:</strong> ${userd2}</p>
+                                    <p><strong>destinatario:</strong> ${proprietario.getNomeCognome()}</p>
                                         <!-- proprietario bacheca -->
                                 </c:if>
                                 <c:if test="${!empty groupd2}">
-                                    <p><strong>gruppo:</strong> ${groupd2}</p>
+                                    <p><strong>gruppo:</strong> ${gruppo.getNomeGruppo()}</p>
                                 </c:if>
 
                                 <c:if test="${!empty tipo2}">
@@ -127,7 +140,7 @@ and open the template in the editor.
                                         <p><strong>messaggio:</strong> ${testo2}</p>
                                     </c:if>
                                     <c:if test="${!empty allegato2}">
-                                        <p><strong>url:</strong>${allegato2}</p>
+                                        <p><strong>url:</strong> ${allegato2}</p>
                                     </c:if>
                                 </c:if>
 
@@ -150,7 +163,7 @@ and open the template in the editor.
                     </c:when>
                     <c:otherwise>
                         <c:if test="${!empty proprietario}">
-                            <h3>Hai scritto sulla bacheca di <a href="bacheca.html?user=0${proprietario.getId()}">${proprietario.getUsername()}</a></h3>
+                            <h3>Hai scritto sulla bacheca di <a href="bacheca.html?user=0${proprietario.getId()}">${proprietario.getNomeCognome()}</a></h3>
                                 <!-- proprietario bacheca -->
                         </c:if>
 
@@ -164,10 +177,10 @@ and open the template in the editor.
                 <c:forEach var="post" items="${posts}">
                     <div class="post">
                         <img class="propic" alt="foto profilo" src="${post.getAutore().getUrlFotoProfilo()}">
-                        <h3><a href="bacheca.html?user=0${post.getAutore().getId()}">${post.getAutore().getUsername()}</a></h3>
+                        <h3><a href="bacheca.html?user=0${post.getAutore().getId()}">${post.getAutore().getNomeCognome()}</a></h3>
                         <p>${post.getContent()}</p>
                         <c:if test="${post.postType == 'LINK'}">
-                            <a class="allegato" href="${post.getUrlAllegato()}">${post.getUrlAllegato()}</a>
+                            <p id="allegatoLink"><a class="allegato" href="${post.getUrlAllegato()}">${post.getUrlAllegato()}</a></p>
                         </c:if>
                         <c:if test="${post.postType == 'IMAGE'}">
                             <img class="allegato" alt="immagine allegato" src="${post.getUrlAllegato()}">
