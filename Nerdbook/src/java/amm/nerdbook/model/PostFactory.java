@@ -208,6 +208,42 @@ public class PostFactory {
         return listaPost;
     }
     
+    public void addNewPost(Post post){
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            
+            String query = 
+                      "insert into post(id_post, autore, utenteDestinatario, "
+                    + "gruppoDestinatario, tipo, content, urlAllegato) "
+                    + "values	(default, ?, ?, ?, ?, ?, ?)";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setInt(1, post.getAutore().getId());
+            if(post.getUser() != null)
+            {
+                stmt.setInt(2, post.getUser().getId());
+                stmt.setNull(3, java.sql.Types.INTEGER);
+            }else
+            {
+                stmt.setNull(2, java.sql.Types.INTEGER);
+                stmt.setInt(3, post.getGroup().getId());
+            }
+            stmt.setInt(4, this.postTypeFromEnum(post.getPostType()));
+            stmt.setString(5, post.getContent());
+            stmt.setString(6, post.getUrlAllegato());
+
+            // Esecuzione query
+            stmt.executeUpdate();
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
     private Post compilaPost(ResultSet res) throws SQLException{
         UtenteFactory utenteFactory = UtenteFactory.getInstance();
         GruppoFactory gruppoFactory = GruppoFactory.getInstance();
@@ -238,5 +274,17 @@ public class PostFactory {
         }
         return Post.Type.TEXT;
         
+    }
+    
+    private int postTypeFromEnum(Post.Type type){
+        
+        switch (type) {
+            case IMAGE:
+                return 2;
+            case LINK:
+                return 3;
+            default:
+                return 1;
+        }
     }
 }

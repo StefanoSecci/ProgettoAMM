@@ -146,15 +146,27 @@ public class Bacheca extends HttpServlet {
                         request.setAttribute("newpost", "false");
                         
                         
-                        /*Post post = new Post();
-                        post.setContent(content);
-                        if(type.equals("textType"))
-                            post.setPostType(Post.Type.TEXT);
-                        else
+                        Post post = new Post();
+                        post.setAutore(loggato);
+                        if(userd != null)
+                        {
+                            post.setUser(proprietarioBacheca);
+                            post.setGroup(null);
+                        }else
+                        {
+                            post.setUser(null);
+                            post.setGroup(gruppoBacheca);
+                        }
+                        if(tipo.equals("image"))
                             post.setPostType(Post.Type.IMAGE);
-
-                        post.setUser(GattoFactory.getInstance().getGattoById((Integer)session.getAttribute("loggedUserID")));
-                        PostFactory.getInstance().addNewPost(post);*/
+                        else if(tipo.equals("link"))
+                            post.setPostType(Post.Type.LINK);
+                        else
+                            post.setPostType(Post.Type.TEXT);
+                        post.setContent(testo);
+                        post.setUrlAllegato(allegato);
+                        
+                        PostFactory.getInstance().addNewPost(post);
                         //request.getRequestDispatcher("bacheca.jsp").forward(request, response);
                     }
                     
