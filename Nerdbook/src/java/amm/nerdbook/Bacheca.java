@@ -98,7 +98,8 @@ public class Bacheca extends HttpServlet {
                 String userd = request.getParameter("userd");
                 String groupd = request.getParameter("groupd");
                 String userp = request.getParameter("userp");
-                String testo = request.getParameter("testo");
+                String s = request.getParameter("testo"); //prendo la tringa ...
+                String testo = new String (s.getBytes("ISO-8859-1"), "UTF-8"); // ... e la converto
                 String allegato = request.getParameter("allegato");
                 String tipo = request.getParameter("tipo");
                 
