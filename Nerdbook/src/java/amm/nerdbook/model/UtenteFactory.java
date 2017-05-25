@@ -160,43 +160,61 @@ public class UtenteFactory {
         return userList;
     }
     
-    /*public void deleteUser(Utente usr)
+    public void deleteUser(Utente usr)
     {
         try {
             // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            PreparedStatement cancellaPostStmt = null;
+            PreparedStatement cancellaUtenteStmt = null;
             int idUser = usr.getId();
             
-            String cancellaPost = 
-                      "delete from post "
+            String cancellaPostString = 
+                    "delete from post "
                     + "where utenteDestinatario = ? or autore = ?";
             
-            String cancellaAmicizie =
-                    "delete from amicizia "
-                    + "where utente = ? or amico = ?";
-            
-            String cancellaAppartenenzaGruppi = 
-                    "delete from appartenenzaGruppo "
-                    + "where utente = ?";
-            
-            String cancellaGruppi = 
-                    "delete from gruppo "
-                    + "where admin = ?";
-            
-            String cancellaUtente = 
-                    "delete from Utente "
+            String cancellaUtenteString = 
+                    "delete from utente "
                     + "where id_utente = ?";
             
-            // Prepared Statement
-            PreparedStatement stmt = conn.prepareStatement(query);
-            
-            // Esecuzione query
-            ResultSet res = stmt.executeQuery();
+            try{
+                conn.setAutoCommit(false); 
+                cancellaPostStmt = conn.prepareStatement(cancellaPostString);
+                cancellaUtenteStmt = conn.prepareStatement(cancellaUtenteString);
+                
+                cancellaPostStmt.setInt(1, idUser);
+                cancellaPostStmt.setInt(2, idUser);
+                cancellaPostStmt.executeUpdate();
+                
+                cancellaUtenteStmt.setInt(1, idUser);
+                cancellaUtenteStmt.executeUpdate();
+                
+                conn.commit();
+                
+            }catch (SQLException e) {
+                e.printStackTrace();
+                if (conn != null) { 
+                    try { 
+                        System.err.print("Transaction is being rolled back"); 
+                        conn.rollback(); 
+                    } catch(SQLException excep) { 
+                         excep.printStackTrace();
+                    } 
+                }
+            } finally { 
+                if (cancellaPostStmt != null) { 
+                    cancellaPostStmt.close(); 
+                } 
+                if (cancellaUtenteStmt != null) { 
+                    cancellaUtenteStmt.close(); 
+                } 
+                conn.setAutoCommit(true); 
+            } 
             
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
+    }
     
     // prende un result set e crea un utente in java
     private Utente compilaUtente(ResultSet res) throws SQLException{

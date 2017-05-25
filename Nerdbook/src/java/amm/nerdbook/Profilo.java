@@ -173,7 +173,7 @@ public class Profilo extends HttpServlet {
                     else
                     {
                         request.setAttribute("click", 0);
-                        
+                        UtenteFactory.getInstance().deleteUser(loggato);
                         request.getRequestDispatcher("Login?logout=1").forward(request, response);
                     }
                 }else{
