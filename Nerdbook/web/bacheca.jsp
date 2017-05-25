@@ -98,6 +98,7 @@ and open the template in the editor.
                                 
 
                                 <!-- variabili per capire bacheca e autore -->
+                                <!---->
 
                                 <input class="hidden" type="text" hidden name="userp" id="userp"
                                        value="${utenteLoggato.getId()}" />

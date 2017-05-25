@@ -227,10 +227,13 @@ public class PostFactory {
             {
                 stmt.setInt(2, post.getUser().getId());
                 stmt.setNull(3, java.sql.Types.INTEGER);
-            }else
+            }else if(post.getGroup() != null)
             {
                 stmt.setNull(2, java.sql.Types.INTEGER);
                 stmt.setInt(3, post.getGroup().getId());
+            }else
+            {
+                throw new SQLException("impossibile salvare il post");
             }
             stmt.setInt(4, this.postTypeFromEnum(post.getPostType()));
             stmt.setString(5, post.getContent());

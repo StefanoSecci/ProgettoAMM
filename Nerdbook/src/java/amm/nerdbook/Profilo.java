@@ -78,72 +78,113 @@ public class Profilo extends HttpServlet {
             request.setAttribute("utenti", utenti);
             request.setAttribute("gruppi", gruppi);
 
-            //logica profilo
-            request.setAttribute("click", 0);
-            
-            String newNome = request.getParameter("name");
-            String newCognome = request.getParameter("surname");
-            String newDataNascita = request.getParameter("data");
-            String newPropic = request.getParameter("propic");
-            String newFrase = request.getParameter("frase");
-            String newPassword = request.getParameter("pswd");
-            String confPsw = request.getParameter("confpswd");
-            String userp = request.getParameter("userp");
-            
-            if(userp != null)
-            {
-                userID = Integer.parseInt(userp);
-            }
-            else
-            {
-                userID = utenteLoggato;
-            }
-            
-            if(userID == utenteLoggato)
-            {
-                if ( newNome != null || newCognome != null 
-                        || newDataNascita != null || newPropic != null 
-                        || newFrase != null || newPassword != null
-                        || confPsw != null)
+            if(request.getParameter("modificaProfilo")!=null){
+                //logica profilo
+                request.setAttribute("click", 0);
+                String s = request.getParameter("name"); //prendo la stringa ...
+                String newNome = new String (s.getBytes("ISO-8859-1"), "UTF-8"); // ... e la converto
+                s = request.getParameter("surname");
+                String newCognome = new String (s.getBytes("ISO-8859-1"), "UTF-8");
+                String newDataNascita = request.getParameter("data");
+                String newPropic = request.getParameter("propic");
+                s = request.getParameter("frase");
+                String newFrase = new String (s.getBytes("ISO-8859-1"), "UTF-8");
+                s = request.getParameter("username");
+                String newUsername = new String (s.getBytes("ISO-8859-1"), "UTF-8");
+                String newPassword = request.getParameter("pswd");
+                String confPsw = request.getParameter("confpswd");
+                String userp = request.getParameter("userp");
+                String modificaProfilo = request.getParameter("modificaProfilo");
+
+                if(userp != null)
                 {
-                    if(newPassword != null && confPsw != null && newPassword.equals(confPsw) )
+                    userID = Integer.parseInt(userp);
+                }
+                else
+                {
+                    userID = utenteLoggato;
+                }
+
+                if(userID == utenteLoggato)
+                {
+                    if (modificaProfilo.equals("needConfirm"))
                     {
-                        request.setAttribute("newNome", newNome);
-                        request.setAttribute("newCognome", newCognome);
-                        try {
-                            Date date = df.parse(newDataNascita);
-                            String dn = date.getDate() + "/" + date.getMonth() + "/" + date.getYear();
-                            request.setAttribute("newDataNascita", dn);
-                        } catch (ParseException ex) {
-                            Logger.getLogger(Profilo.class.getName()).log(Level.SEVERE, null, ex);
+                        if(newPassword != null && confPsw != null && newPassword.equals(confPsw) )
+                        {
+                            request.setAttribute("newNome", newNome);
+                            request.setAttribute("newCognome", newCognome);
+                            try {
+                                Date date = df.parse(newDataNascita);
+                                String dn = date.getDate() + "/" + date.getMonth() + "/" + date.getYear();
+                                request.setAttribute("newDataNascita", dn);
+                            } catch (ParseException ex) {
+                                Logger.getLogger(Profilo.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
+                            request.setAttribute("newPropic", newPropic);
+                            request.setAttribute("newFrase", newFrase);
+                            request.setAttribute("newUsername", newUsername);
+                            request.setAttribute("newPassword", newPassword);
+                            //request.setAttribute("ggg", userp);
+
+
+                            request.setAttribute("click", 1);
                         }
+                        else
+                        {
+                            request.setAttribute("click", 2);
+
+                        }
+
+
+                    } 
+
+                    //request.getRequestDispatcher("profilo.jsp").forward(request, response);
+                }
+
+                else{
+                    response.sendError(400, "stai tentando di modifiare i dati di un profilo che non ti appartiene!");
+
+                }
+            
+            }else if(request.getParameter("cancellaProfilo")!= null)
+            {
+                String userp = request.getParameter("userp");
+                String cancellaProfilo = request.getParameter("cancellaProfilo");
+                request.setAttribute("click", 0);
+                
+                if(userp != null)
+                {
+                    userID = Integer.parseInt(userp);
+                }
+                else
+                {
+                    userID = utenteLoggato;
+                }
+
+                if(userID == utenteLoggato)
+                {
+                    if (cancellaProfilo.equals("deleteProfile"))
+                    {
+                        request.setAttribute("userp2", userp);
+                        request.setAttribute("click", 3);
                         
-                        request.setAttribute("newPropic", newPropic);
-                        request.setAttribute("newFrase", newFrase);
-                        request.setAttribute("newPassword", newPassword);
-                        //request.setAttribute("ggg", userp);
-                        
-                        
-                        request.setAttribute("click", 1);
                     }
                     else
                     {
-                        request.setAttribute("click", 2);
-
+                        request.setAttribute("click", 0);
+                        
+                        request.getRequestDispatcher("Login?logout=1").forward(request, response);
                     }
+                }else{
                     
-                    
+                    response.sendError(400, "stai tentando di cancellare un profilo che non ti appartiene!");
                 }
-                
-                request.getRequestDispatcher("profilo.jsp").forward(request, response);
-            }
-            
-            else{
-                response.sendError(400, "stai tentando di modifiare i dati di un profilo che non ti appartiene!");
-
+                //request.getRequestDispatcher("Login?logout=1").forward(request, response);
             }
             
             
+            request.getRequestDispatcher("profilo.jsp").forward(request, response);
         }
         else{
             

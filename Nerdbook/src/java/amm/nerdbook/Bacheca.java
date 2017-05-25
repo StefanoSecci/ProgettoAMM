@@ -98,7 +98,7 @@ public class Bacheca extends HttpServlet {
                 String userd = request.getParameter("userd");
                 String groupd = request.getParameter("groupd");
                 String userp = request.getParameter("userp");
-                String s = request.getParameter("testo"); //prendo la tringa ...
+                String s = request.getParameter("testo"); //prendo la stringa ...
                 String testo = new String (s.getBytes("ISO-8859-1"), "UTF-8"); // ... e la converto
                 String allegato = request.getParameter("allegato");
                 String tipo = request.getParameter("tipo");
@@ -149,14 +149,19 @@ public class Bacheca extends HttpServlet {
                         
                         Post post = new Post();
                         post.setAutore(loggato);
-                        if(userd != null)
-                        {
-                            post.setUser(proprietarioBacheca);
-                            post.setGroup(null);
-                        }else
+                        if(groupd != null && gruppoBacheca != null)
                         {
                             post.setUser(null);
                             post.setGroup(gruppoBacheca);
+                        }
+                        else if(userd != null && proprietarioBacheca != null)
+                        {
+                            post.setUser(proprietarioBacheca);
+                            post.setGroup(null);
+                        }
+                        else
+                        {
+                            response.sendError(500, "gruppo o utente non trovato");
                         }
                         if(tipo.equals("image"))
                             post.setPostType(Post.Type.IMAGE);

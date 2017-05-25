@@ -37,10 +37,11 @@ and open the template in the editor.
             
             
         
-            <div id="formProfilo">
-                <c:choose>
-                    <c:when test="${click == 1}">
-                
+            
+            <c:choose>
+                <c:when test="${click == 1}">
+                    <div id="formProfilo">
+                        
                         <div class="datiProfilo">
                             <h3>Dati inseriti correttamente</h3>
 
@@ -59,16 +60,20 @@ and open the template in the editor.
                             <c:if test="${!empty newFrase}">
                                 <p><strong>stato:</strong> ${newFrase}</p>
                             </c:if>
+                            <c:if test="${!empty newUsername}">
+                                <p><strong>username:</strong> ${newUsername}</p>
+                            </c:if>
                             <c:if test="${!empty newPassword}">
                                 <p><strong>password:</strong> ${newPassword}</p>
                             </c:if>
-
-
-
                         </div>
-                    </c:when>
-                    <c:otherwise>
-                    
+
+
+                    </div>
+                </c:when>
+                <c:otherwise>
+                    <div id="formProfilo">
+                        
                         <c:if test="${click == 2}">
                             <div id="invalidDataWarning">password non valida</div>
                         </c:if>
@@ -76,45 +81,67 @@ and open the template in the editor.
                         <img class="propic" alt="foto profilo" src="${utenteLoggato.getUrlFotoProfilo()}"/>
 
 
-                            <form action="Profilo" method="post">
-                                <label for="name">Nome</label>
-                                <input type="text" name="name" id="name"
-                                       value="${utenteLoggato.getNome()}" />
+                        <form action="Profilo" method="post">
+                            <c:choose>
+                                <c:when test="${click == 3}">
+                                    <p class="center"><strong>Sei veramente sicuro?</strong></p>
+                                    <input class="hidden" type="text" name="userp" id="userp"
+                                           value="${userp2}" />
+                                    <button type="submit" name="cancellaProfilo" value="deleteOk">Cancella Profilo</button>
+                                </c:when>
+                                
+                                <c:otherwise>
+                                    <label for="name">Nome</label>
+                                    <input type="text" name="name" id="name"
+                                           value="${utenteLoggato.getNome()}" />
 
-                                <label for="surname">Cognome</label>
-                                <input type="text" name="surname" id="surname"
-                                       value="${utenteLoggato.getCognome()}" />
+                                    <label for="surname">Cognome</label>
+                                    <input type="text" name="surname" id="surname"
+                                           value="${utenteLoggato.getCognome()}" />
 
-                                <label for="data">Nato il</label>
-                                <input type="date" name="data" id="data"
-                                       value="${utenteLoggato.getDataNascitaString()}" />
+                                    <label for="data">Nato il</label>
+                                    <input type="date" name="data" id="data"
+                                           value="${utenteLoggato.getDataNascitaString()}" />
 
-                                <label for="propic">Immagine del profilo</label>
-                                <input type="url" name="propic" id="propic"
-                                       value="${utenteLoggato.getUrlFotoProfilo()}"/>
+                                    <label for="propic">Immagine del profilo</label>
+                                    <input type="url" name="propic" id="propic"
+                                           value="${utenteLoggato.getUrlFotoProfilo()}"/>
 
-                                <label for="frase">Frase di presentazione</label>
-                                <input type="text" name="frase" id="frase"
-                                       value="${utenteLoggato.getFrasePresentazione()}"/>
+                                    <label for="frase">Frase di presentazione</label>
+                                    <input type="text" name="frase" id="frase"
+                                           value="${utenteLoggato.getFrasePresentazione()}"/>
 
-                                <label for="pswd">Password</label>
-                                <input type="password" name="pswd" id="pswd"
-                                       value="" />
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" id="surname"
+                                           value="${utenteLoggato.getUsername()}" />
 
-                                <label for="confpswd">Conferma password</label>
-                                <input type="password" name="confpswd" id="confpswd"
-                                       value="" />
+                                    <label for="pswd">Password</label>
+                                    <input type="password" name="pswd" id="pswd"
+                                           value="" />
+
+                                    <label for="confpswd">Conferma password</label>
+                                    <input type="password" name="confpswd" id="confpswd"
+                                           value="" />
 
 
-                                <input class="hidden" type="text" name="userp" id="userp"
-                                       value="${utenteLoggato.getId()}" />
+                                    <input class="hidden" type="text" name="userp" id="userp"
+                                           value="${utenteLoggato.getId()}" />
 
-                                <button type="submit">Aggiorna</button>
-                            </form>
-                    </c:otherwise>
-                </c:choose>
+                                    <button type="submit" name="modificaProfilo" value="needConfirm">Aggiorna</button>
+                                    <p class="center">Oppure</p>
+                                    <button type="submit" name="cancellaProfilo" value="deleteProfile">Cancella Profilo</button>
+                                </c:otherwise>
+                            </c:choose>
+                            
+                            
+                        </form>
+                        
+                    </div>
+                    
+                </c:otherwise>
+            </c:choose>
                 
-            </div>
+            
             
         </div>
         

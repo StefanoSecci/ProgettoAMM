@@ -31,11 +31,9 @@
             
             
             <c:if test="${invalidData == -1}">
-                    <div id="invalidDataWarning">L'utente inserito non esiste</div>
+                    <div id="invalidDataWarning">Username o password non inseriti correttamente</div>
             </c:if>
-            <c:if test="${invalidData == -2}">
-                    <div id="invalidDataWarning">La password inserita non è corretta</div>
-            </c:if>
+            
             
             <form action="Login" method="post">
                 <label for="user">Nome Utente</label>

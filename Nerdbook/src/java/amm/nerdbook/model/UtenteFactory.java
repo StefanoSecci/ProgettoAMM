@@ -160,6 +160,44 @@ public class UtenteFactory {
         return userList;
     }
     
+    /*public void deleteUser(Utente usr)
+    {
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            int idUser = usr.getId();
+            
+            String cancellaPost = 
+                      "delete from post "
+                    + "where utenteDestinatario = ? or autore = ?";
+            
+            String cancellaAmicizie =
+                    "delete from amicizia "
+                    + "where utente = ? or amico = ?";
+            
+            String cancellaAppartenenzaGruppi = 
+                    "delete from appartenenzaGruppo "
+                    + "where utente = ?";
+            
+            String cancellaGruppi = 
+                    "delete from gruppo "
+                    + "where admin = ?";
+            
+            String cancellaUtente = 
+                    "delete from Utente "
+                    + "where id_utente = ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
+    
     // prende un result set e crea un utente in java
     private Utente compilaUtente(ResultSet res) throws SQLException{
         java.sql.Date dbDate;

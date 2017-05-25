@@ -150,6 +150,10 @@ nav li.attuale{
     visibility: hidden;
 }
 
+#formProfilo .center{
+    text-align: center;
+}
+
 
 #formPost input
 {
