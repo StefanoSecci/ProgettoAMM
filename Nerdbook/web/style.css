@@ -54,7 +54,7 @@ input:focus{
     box-shadow: 0 0 1px #ffcf0d;
 }
 
-form button{
+button{
     font-family: 'Tauri', Charcoal, sans-serif;
     width: 100%;
     background-color: #ff9900;
@@ -65,12 +65,12 @@ form button{
     padding-bottom: 5px;
 }
 
-form button:hover{
+button:hover{
     background-color: #ffcf0d;
     border-top-color: #ffcf0d;
 }
 
-form button:active, form button:focus{
+button:active, button:focus{
     border-bottom-color:  #ffcf0d ;
     border-top-color: #353535;
     outline: none;
@@ -471,6 +471,23 @@ nav li.attuale{
         float: left;
 
     }
+    
+    #sidebar #barraRicerca{
+        display: inline-block;
+        width: 200px;
+    }
+    
+    #sidebar input{
+        margin-bottom: 5px;
+        margin-top: 5px;
+        width: 196px;
+    }
+    
+    #sidebar button{
+        width: 200px;
+        
+        margin-top: 0px;    
+    }
 
     #sidebar h2{
         margin-top: 10px;
@@ -711,7 +728,26 @@ nav li.attuale{
         position: absolute;
         top: 0px;
         left: 0px;
+        width: 130px;
+    }
+    
+    #sidebar #barraRicerca{
+        display: inline-block;
+        width: 130px;
+    }
+    
+    #sidebar input{
+        margin-bottom: 5px;
+        margin-top: 5px;
+        margin-left: 10px;
+        width: 116px;
+    }
+    
+    #sidebar button{
         width: 120px;
+        margin-left: 10px;
+        margin-top: 0px;
+        margin-bottom: 5px;
     }
     
     #sidebar h2{
@@ -728,7 +764,7 @@ nav li.attuale{
         display: inline-block;
         padding-left: 0px;
         margin: 0px;
-        width: 120px;
+        width: 130px;
         float: left;
     }    
 
@@ -743,7 +779,7 @@ nav li.attuale{
     #persone li p, #gruppi li p{
         display: inline-block;
         line-height: 20px;
-        width: 105px;
+        width: 115px;
         margin: 0px;
         margin-bottom: 5px;
         padding-left: 15px;
@@ -1099,7 +1135,27 @@ nav li.attuale{
         width: 100%;
         height: 100%;
         padding-bottom: 10px;
+        
     }
+    
+    
+    #sidebar #barraRicerca{
+        display: inline-block;
+        width: 100%;
+        
+    }
+    
+    #sidebar input, #sidebar button{
+        margin: 10px 0px;
+        display: block;
+        width: 100%;
+        margin-top: 0px;
+    }
+    
+    #sidebar input{
+        margin-left: -2px;
+    }
+    
     
     #sidebar h2{
         margin-top: 0px;
@@ -1124,7 +1180,8 @@ nav li.attuale{
     #persone, #gruppi{
         display: block;
         height: 100%;
-        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     #persone li p, #gruppi li p{

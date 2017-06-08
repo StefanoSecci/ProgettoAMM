@@ -5,11 +5,16 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <div id="sidebar">
     <div id="persone">
         <h2>Persone</h2>
+        <div id="barraRicerca">
+            <input id="searchField" type="text" placeholder="cerca utente"/>
+            <button id="searchButton">Cerca</button>
+        </div>
         <div id="personeList">
-            <ul>
+            <ul id="personeUl">
                 <c:forEach var="usr" items="${utenti}">    
                     <li>
                         <img class="propic" alt="immagine profilo" src="${usr.getUrlFotoProfilo()}"/>

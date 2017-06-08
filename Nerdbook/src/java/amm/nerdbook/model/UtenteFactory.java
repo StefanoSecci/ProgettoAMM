@@ -160,6 +160,49 @@ public class UtenteFactory {
         return userList;
     }
     
+    public List getListaUtenti(String search) {
+
+        List<Utente> userList = new ArrayList<Utente>();
+
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "ammdb", "123");
+            
+            String query = 
+                      "select * from utente "
+                    + "where nome like ? or cognome like ? "
+                    + "order by cognome, nome";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, "%" + search + "%");
+            stmt.setString(2, "%" + search + "%");
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                
+                Utente current = new Utente();
+                current = this.compilaUtente(res);
+
+                userList.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        //userList = this.listaUtenti;
+        
+        return userList;
+    }
+    
     public void deleteUser(Utente usr)
     {
         try {

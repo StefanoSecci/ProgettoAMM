@@ -21,6 +21,8 @@ and open the template in the editor.
         <meta name="author" content="Stefano Secci">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
         <link href='//fonts.googleapis.com/css?family=Tauri' rel='stylesheet'>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/javascript.js"></script>
     </head>
     <body>
         
